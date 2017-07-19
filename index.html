@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -240,6 +240,435 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/19/07.19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/19/07.19/" itemprop="url">
+                  07.19
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T09:52:46+08:00">
+                2017-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>函数不return的话，是不会有返回值的！！</p>
+<h1 id="indexOf的用法"><a href="#indexOf的用法" class="headerlink" title="indexOf的用法"></a>indexOf的用法</h1><p>该方法从头到尾地检索字符串 stringObject，看它是否含有子串searchvalue。开始检索的位置位于字符串的fromindex处或字符串的开头（没有指定fromindex时）。如果找到一个searchvalue，则返回searchvalue的第一次出现的位置。stringObject中的字符位置是从0开始的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stringObject.indexOf(searchvalue,fromindex);</div><div class="line"><span class="comment">// 如果要检索的字符串没有出现，则该方法返回-1。</span></div></pre></td></tr></table></figure></p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h3 id="复制变量"><a href="#复制变量" class="headerlink" title="复制变量"></a>复制变量</h3><p>从一个变量向另一个变量复制基本类型值和引用类型值时，也有不同。</p>
+<p>简单来说就是基本类型值复制后，两个变量互不相关。</p>
+<p>而引用类型值复制之后，两个变量将引用同一个对象。改变其中一个变量，就会影响另外一个。（javascript中不允许直接访问内存中的位置，即不能直接操作对象的内存空间。所以在操作对象时，实际上是在操作对象的引用。）</p>
+<ul>
+<li><p>基本类型值：如果从一个变量向另一个变量复制基本类型的值，会在变量对象上创建一个新值，然后把该值复制到为新变量分配的位置上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">5</span>;</div><div class="line"><span class="keyword">var</span> num2 = num1;</div><div class="line"><span class="comment">// 在此，num1保存的值是5。当使用num1的值来初始化num2时，num2中也保存了值5。</span></div><div class="line"><span class="comment">// 但num2中的5与num1中的5是完全独立的，该值只是num1中5的一个副本。</span></div><div class="line"><span class="comment">// 此后，这两个变量可以参与任何操作而不会互相影响。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>引用类型值：当一个变量向另一个变量复制引用类型的值时，同样也会将储存在变量对象中的值复制一份放到为新变量分配的空间中。不同的是，这个值的副本实际是一个指针，而这个指针指向储存在堆中的一个对象。复制操作结束后，两个变量将引用同一个对象。</p>
+<h1 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h1><p>ECMAScript中所有函数的参数都是 <strong>按值传递</strong> 的。</p>
+</li>
+</ul>
+<h1 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h1><ul>
+<li>typeof：常用于检测基本数据类型，但在检测引用数据类型时，返回值必是Object。</li>
+<li>instanceof：检测属于什么类型的对象。</li>
+</ul>
+<h1 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h1><p>执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的<strong>变量对象</strong>，环境中定义的所有变量和函数都保存在这个对象。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/19/07.19/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/18/07.18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/18/07.18/" itemprop="url">
+                  07.18
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T23:14:37+08:00">
+                2017-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>JavaScript的变量与其他语言的变量有很大区别。JavaScript变量松散类型的本质，决定了它只是在特定时间用于保存特定值的一个名字而已。由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的生命周期内改变。</p>
+<h3 id="基本类型和引用类型的值。"><a href="#基本类型和引用类型的值。" class="headerlink" title="基本类型和引用类型的值。"></a>基本类型和引用类型的值。</h3><p>ECMAScript变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的<strong>对象</strong>。</p>
+<ul>
+<li>基本类型值包括五种基本数据类型：Undefined、Null、Boolean、Number、和String。这五种基本数据类型是按值访问的，因为可以操作保存在变量中的实际的值。</li>
+<li>引用类型的值是保存在内存中的对象。与其他语言不同，JavaScript不允许直接访问内存中的位置，也就是说不能直接操作对象的内存空间。在操作对象时，实际上是在操作对象的引用而不是实际的对象。为此，引用类型的值是按引用访问的。</li>
+</ul>
+<p>在ECMAScript中，引用类型是一种数据结构，用于将数据和功能组织在一起。引用类型有时候也被称为<strong>对象定义</strong>，因为它们描述的是一类对象所具有的属性和方法。</p>
+<p><strong>包含引用类型值的变量实际上包含的并不是对象本身，而是一个指向该对象的指针。</strong><br><strong>对象是某个特定引用类型的实例</strong>，新对象是使用new操作符加一个构造函数生成的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div></pre></td></tr></table></figure></p>
+<p>这行代码创建一个Object()类型的新实例，保存到Person变量中，构造函数Object为新对象定义了默认的属性和方法。<br>即Person可以调用Object的属性和方法。</p>
+<h3 id="Object类型"><a href="#Object类型" class="headerlink" title="Object类型"></a>Object类型</h3><p>创建Object类型有两种方法</p>
+<ol>
+<li><p>使用new操作符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = <span class="keyword">new</span> <span class="built_in">Object</span>().</div></pre></td></tr></table></figure>
+</li>
+<li><p>对象字面量法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> apple = &#123;</div><div class="line">	<span class="attr">price</span>: <span class="number">100</span>,</div><div class="line">	<span class="attr">color</span>: <span class="string">'red'</span>,</div><div class="line">	<span class="string">"to where"</span>: <span class="string">'BeiJing'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>访问对象属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">apple.price;           <span class="comment">//100</span></div><div class="line">apple[<span class="string">"price"</span>];        <span class="comment">//100</span></div><div class="line"><span class="comment">//to where 含有空格，不能用“.”来访问，只能用方括号语法。</span></div><div class="line"><span class="comment">//方括号语法的好处是，可以通过变量来访问属性。</span></div><div class="line"><span class="comment">//在使用方括号语法时，应该将要访问的属性以字符串形式放在方括号中。</span></div><div class="line">apple[<span class="string">"to where"</span>];     <span class="comment">//"BeiJing"</span></div></pre></td></tr></table></figure></p>
+<h3 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a>Array类型</h3><p>ECMAScript数组的每一项可以保存任何类型的数据</p>
+<ol>
+<li><p>采用Array构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="comment">// var array = Array();</span></div><div class="line">array[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">array[<span class="number">1</span>] = <span class="number">2</span>;</div><div class="line"><span class="comment">// array = [1,2];</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数组字面量法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">'shit'</span>];</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>数组的length属性并不是只读的，我可以通过修改length的属性值删除数组末尾的元素。</p>
+<h4 id="slice-amp-splice"><a href="#slice-amp-splice" class="headerlink" title="slice&amp;splice"></a>slice&amp;splice</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Array.prototype.slice(beginIndex,endIndex);包括开始不包括结束</span></div><div class="line"><span class="comment">// 返回含有被提取元素的一个新数组,原数组不发生变化。</span></div><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">a.slice(<span class="number">0</span>,<span class="number">1</span>).       <span class="comment">// [1]  把序号为0的元素取出来，原数组不变</span></div><div class="line"><span class="built_in">console</span>.log(a)      <span class="comment">// [1,2,3,4]  </span></div><div class="line"></div><div class="line">a.slice(<span class="number">1</span>,<span class="number">-1</span>);      <span class="comment">// [2,3]</span></div><div class="line">a.slice(<span class="number">1</span>,<span class="number">3</span>);       <span class="comment">// [2,3]</span></div><div class="line"></div><div class="line"><span class="comment">// 该方法可用于字符串。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Array.prototype.splice(start,deleteConut);</span></div><div class="line"><span class="comment">// Array.prototype.splice(start,deleteCount,item1,item2,..);</span></div><div class="line"><span class="comment">// 返回一个由被删除元素组成的数组。如果只删除了一个元素，则返回只包含一个元素的数组。若没有删除元素，则返回空数组。</span></div><div class="line"><span class="comment">// 该操作会改变原数组</span></div><div class="line"><span class="keyword">var</span> b = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</div><div class="line">b.splice(<span class="number">2</span>,<span class="number">0</span>,<span class="number">33</span>,<span class="number">333</span>,<span class="number">3333</span>);      <span class="comment">// 在索引为2的位置删除0个元素，插入33，333，3333</span></div><div class="line"><span class="comment">// 该方法不可用于字符串。</span></div></pre></td></tr></table></figure>
+<p>split用于把字符串分割成字符串数组<br>slice<br>splice</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/17/07.17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/17/07.17/" itemprop="url">
+                  07.17
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T17:25:00+08:00">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="一、作用域"><a href="#一、作用域" class="headerlink" title="一、作用域"></a>一、作用域</h1><p>JavaScript采用词法作用域，即函数执行的时候的作用域由其声明所在的词法位置决定。</p>
+<blockquote>
+<p>函数被调用时会创建一个新的作用域。</p>
+</blockquote>
+<p>当使用变量的时候，JavaScript会做如下事情：</p>
+<ol>
+<li>现在当前函数里（作用域）找这个变量</li>
+<li>如果没有则向外层找，如果外层也没，则继续在外层的的外层查找。</li>
+<li>当全局作用域也找不到的时候，报错“xxx is not defined”</li>
+</ol>
+<h3 id="Demo-01"><a href="#Demo-01" class="headerlink" title="Demo 01"></a>Demo 01</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'hancheng'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">out_out_side</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//这里是out_out_side作用域</span></div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">out_side</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="comment">//这里是out_side作用域</span></div><div class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">in_side</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">//这里是in_side作用域</span></div><div class="line">			<span class="built_in">console</span>.log(name);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">out_out_side()()();</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/17/07.17/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -287,7 +716,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-16T01:15:41+08:00">
                 2017-07-16
@@ -326,21 +755,16 @@
 
       
         
-          
-            <h1 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h1><h4 id="一、CSS3边框"><a href="#一、CSS3边框" class="headerlink" title="一、CSS3边框"></a>一、CSS3边框</h4><ul>
-<li>border-radius;</li>
-<li>box-shadow;</li>
-<li>border-image;<h4 id="二、CSS3文本效果"><a href="#二、CSS3文本效果" class="headerlink" title="二、CSS3文本效果"></a>二、CSS3文本效果</h4></li>
-<li>text-shadow;</li>
-<li>word-wrap;<h4 id="三、2D转换"><a href="#三、2D转换" class="headerlink" title="三、2D转换"></a>三、2D转换</h4></li>
-<li>translate(x,y);<br>通过该方法，元素从当前位置移动，根据给定的left(x坐标)和top(y坐标)位置参数；</li>
-<li>rotate();</li>
-<li>scale();</li>
-<li>skew();</li>
-<li>matrix();</li>
-</ul>
-
-          
+          <h1 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h1><h4 id="一、CSS3边框"><a href="#一、CSS3边框" class="headerlink" title="一、CSS3边框"></a>一、CSS3边框</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">border-radius</span>;</div><div class="line"><span class="selector-tag">box-shadow</span>;</div><div class="line"><span class="selector-tag">border-image</span>;</div></pre></td></tr></table></figure>
+<h4 id="二、CSS3文本效果"><a href="#二、CSS3文本效果" class="headerlink" title="二、CSS3文本效果"></a>二、CSS3文本效果</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-shadow</span>;</div><div class="line"><span class="selector-tag">word-wrap</span>;</div></pre></td></tr></table></figure>
+<h4 id="三、2D转换"><a href="#三、2D转换" class="headerlink" title="三、2D转换"></a>三、2D转换</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">translate</span>(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>);</div><div class="line">通过该方法，元素从当前位置移动，根据给定的<span class="selector-tag">left</span>(<span class="selector-tag">x</span>坐标)和<span class="selector-tag">top</span>(<span class="selector-tag">y</span>坐标)位置参数。</div><div class="line"><span class="selector-tag">rotate</span>(<span class="selector-tag">xdeg</span>);</div><div class="line">通过该方法，元素顺时针旋转给定的角度。允许负值，元素将逆时针旋转。</div><div class="line"><span class="selector-tag">scale</span>(<span class="selector-tag">x</span>，<span class="selector-tag">y</span>);</div><div class="line">通过该方法，元素的尺寸会增加或减少，根据给定的宽度(<span class="selector-tag">X</span>轴)和高度(<span class="selector-tag">Y</span>轴)参数。</div><div class="line"><span class="selector-tag">skew</span>(<span class="selector-tag">xdeg</span>,<span class="selector-tag">ydeg</span>);</div><div class="line">通过该方法，元素反转给定的角度，根据给定的水平线(<span class="selector-tag">X</span>轴)和垂直线(<span class="selector-tag">Y</span>轴)参数。</div><div class="line"><span class="selector-tag">matrix</span>();</div><div class="line">该方法把所有2<span class="selector-tag">D</span>转换方法组合在一起。</div><div class="line">该方法需要六个参数，包含数学函数，允许旋转、缩放、移动以及倾斜元素。</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/16/07.16/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -405,7 +829,7 @@
               
                 
                 <a class="post-title-link" href="/2017/07/14/07.14/" itemprop="url">
-                  7.14
+                  07.14
                 </a>
               
             
@@ -419,7 +843,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T22:23:22+08:00">
                 2017-07-14
@@ -527,7 +951,7 @@
               
                 
                 <a class="post-title-link" href="/2017/07/13/07.13/" itemprop="url">
-                  7.13
+                  07.13
                 </a>
               
             
@@ -541,7 +965,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-13T15:43:45+08:00">
                 2017-07-13
@@ -608,7 +1032,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/13/07.13/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -690,7 +1114,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-12T09:16:53+08:00">
                 2017-07-12
@@ -736,7 +1160,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/12/07.12/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -818,7 +1242,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-11T13:16:10+08:00">
                 2017-07-11
@@ -863,7 +1287,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/11/07.11/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -945,7 +1369,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-10T21:28:03+08:00">
                 2017-07-10
@@ -1068,7 +1492,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-10T19:09:00+08:00">
                 2017-07-10
@@ -1196,8 +1620,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -1251,7 +1675,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

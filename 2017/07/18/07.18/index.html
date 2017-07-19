@@ -1,0 +1,688 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="变量JavaScript的变量与其他语言的变量有很大区别。JavaScript变量松散类型的本质，决定了它只是在特定时间用于保存特定值的一个名字而已。由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的生命周期内改变。 基本类型和引用类型的值。ECMAScript变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="07.18">
+<meta property="og:url" content="http://hanchengz.github.io/2017/07/18/07.18/index.html">
+<meta property="og:site_name" content="Hero">
+<meta property="og:description" content="变量JavaScript的变量与其他语言的变量有很大区别。JavaScript变量松散类型的本质，决定了它只是在特定时间用于保存特定值的一个名字而已。由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的生命周期内改变。 基本类型和引用类型的值。ECMAScript变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指">
+<meta property="og:updated_time" content="2017-07-19T15:07:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="07.18">
+<meta name="twitter:description" content="变量JavaScript的变量与其他语言的变量有很大区别。JavaScript变量松散类型的本质，决定了它只是在特定时间用于保存特定值的一个名字而已。由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的生命周期内改变。 基本类型和引用类型的值。ECMAScript变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://hanchengz.github.io/2017/07/18/07.18/"/>
+
+
+
+
+
+  <title> 07.18 | Hero </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hero</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/18/07.18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                07.18
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T23:14:37+08:00">
+                2017-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>JavaScript的变量与其他语言的变量有很大区别。JavaScript变量松散类型的本质，决定了它只是在特定时间用于保存特定值的一个名字而已。由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的生命周期内改变。</p>
+<h3 id="基本类型和引用类型的值。"><a href="#基本类型和引用类型的值。" class="headerlink" title="基本类型和引用类型的值。"></a>基本类型和引用类型的值。</h3><p>ECMAScript变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的<strong>对象</strong>。</p>
+<ul>
+<li>基本类型值包括五种基本数据类型：Undefined、Null、Boolean、Number、和String。这五种基本数据类型是按值访问的，因为可以操作保存在变量中的实际的值。</li>
+<li>引用类型的值是保存在内存中的对象。与其他语言不同，JavaScript不允许直接访问内存中的位置，也就是说不能直接操作对象的内存空间。在操作对象时，实际上是在操作对象的引用而不是实际的对象。为此，引用类型的值是按引用访问的。</li>
+</ul>
+<p>在ECMAScript中，引用类型是一种数据结构，用于将数据和功能组织在一起。引用类型有时候也被称为<strong>对象定义</strong>，因为它们描述的是一类对象所具有的属性和方法。</p>
+<p><strong>包含引用类型值的变量实际上包含的并不是对象本身，而是一个指向该对象的指针。</strong><br><strong>对象是某个特定引用类型的实例</strong>，新对象是使用new操作符加一个构造函数生成的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div></pre></td></tr></table></figure></p>
+<p>这行代码创建一个Object()类型的新实例，保存到Person变量中，构造函数Object为新对象定义了默认的属性和方法。<br>即Person可以调用Object的属性和方法。</p>
+<h3 id="Object类型"><a href="#Object类型" class="headerlink" title="Object类型"></a>Object类型</h3><p>创建Object类型有两种方法</p>
+<ol>
+<li><p>使用new操作符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = <span class="keyword">new</span> <span class="built_in">Object</span>().</div></pre></td></tr></table></figure>
+</li>
+<li><p>对象字面量法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> apple = &#123;</div><div class="line">	<span class="attr">price</span>: <span class="number">100</span>,</div><div class="line">	<span class="attr">color</span>: <span class="string">'red'</span>,</div><div class="line">	<span class="string">"to where"</span>: <span class="string">'BeiJing'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>访问对象属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">apple.price;           <span class="comment">//100</span></div><div class="line">apple[<span class="string">"price"</span>];        <span class="comment">//100</span></div><div class="line"><span class="comment">//to where 含有空格，不能用“.”来访问，只能用方括号语法。</span></div><div class="line"><span class="comment">//方括号语法的好处是，可以通过变量来访问属性。</span></div><div class="line"><span class="comment">//在使用方括号语法时，应该将要访问的属性以字符串形式放在方括号中。</span></div><div class="line">apple[<span class="string">"to where"</span>];     <span class="comment">//"BeiJing"</span></div></pre></td></tr></table></figure></p>
+<h3 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a>Array类型</h3><p>ECMAScript数组的每一项可以保存任何类型的数据</p>
+<ol>
+<li><p>采用Array构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="comment">// var array = Array();</span></div><div class="line">array[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">array[<span class="number">1</span>] = <span class="number">2</span>;</div><div class="line"><span class="comment">// array = [1,2];</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数组字面量法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">'shit'</span>];</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>数组的length属性并不是只读的，我可以通过修改length的属性值删除数组末尾的元素。</p>
+<h4 id="slice-amp-splice"><a href="#slice-amp-splice" class="headerlink" title="slice&amp;splice"></a>slice&amp;splice</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Array.prototype.slice(beginIndex,endIndex);包括开始不包括结束</span></div><div class="line"><span class="comment">// 返回含有被提取元素的一个新数组,原数组不发生变化。</span></div><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">a.slice(<span class="number">0</span>,<span class="number">1</span>).       <span class="comment">// [1]  把序号为0的元素取出来，原数组不变</span></div><div class="line"><span class="built_in">console</span>.log(a)      <span class="comment">// [1,2,3,4]  </span></div><div class="line"></div><div class="line">a.slice(<span class="number">1</span>,<span class="number">-1</span>);      <span class="comment">// [2,3]</span></div><div class="line">a.slice(<span class="number">1</span>,<span class="number">3</span>);       <span class="comment">// [2,3]</span></div><div class="line"></div><div class="line"><span class="comment">// 该方法可用于字符串。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Array.prototype.splice(start,deleteConut);</span></div><div class="line"><span class="comment">// Array.prototype.splice(start,deleteCount,item1,item2,..);</span></div><div class="line"><span class="comment">// 返回一个由被删除元素组成的数组。如果只删除了一个元素，则返回只包含一个元素的数组。若没有删除元素，则返回空数组。</span></div><div class="line"><span class="comment">// 该操作会改变原数组</span></div><div class="line"><span class="keyword">var</span> b = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</div><div class="line">b.splice(<span class="number">2</span>,<span class="number">0</span>,<span class="number">33</span>,<span class="number">333</span>,<span class="number">3333</span>);      <span class="comment">// 在索引为2的位置删除0个元素，插入33，333，3333</span></div><div class="line"><span class="comment">// 该方法不可用于字符串。</span></div></pre></td></tr></table></figure>
+<p>split用于把字符串分割成字符串数组<br>slice<br>splice</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/17/07.17/" rel="next" title="07.17">
+                <i class="fa fa-chevron-left"></i> 07.17
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/19/07.19/" rel="prev" title="07.19">
+                07.19 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Hancheng Zhou" />
+          <p class="site-author-name" itemprop="name">Hancheng Zhou</p>
+           
+              <p class="site-description motion-element" itemprop="description">Blog</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型和引用类型的值。"><span class="nav-number">1.0.1.</span> <span class="nav-text">基本类型和引用类型的值。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object类型"><span class="nav-number">1.0.2.</span> <span class="nav-text">Object类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array类型"><span class="nav-number">1.0.3.</span> <span class="nav-text">Array类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#slice-amp-splice"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">slice&splice</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hancheng Zhou</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
