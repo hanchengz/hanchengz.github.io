@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="一、作用域JavaScript采用词法作用域，即函数执行的时候的作用域由其声明所在的词法位置决定。  函数被调用时会创建一个新的作用域。  当使用变量的时候，JavaScript会做如下事情：  现在当前函数里（作用域）找这个变量 如果没有则向外层找，如果外层也没，则继续在外层的的外层查找。 当全局作用域也找不到的时候，报错“xxx is not defined”  Demo 0112345678">
+<meta name="description" content="background-clipmask-image">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07.17">
-<meta property="og:url" content="http://hanchengz.github.io/2017/07/17/07.17/index.html">
+<meta property="og:title" content="07.26">
+<meta property="og:url" content="http://hanchengz.github.io/2017/07/26/07.26/index.html">
 <meta property="og:site_name" content="Hero">
-<meta property="og:description" content="一、作用域JavaScript采用词法作用域，即函数执行的时候的作用域由其声明所在的词法位置决定。  函数被调用时会创建一个新的作用域。  当使用变量的时候，JavaScript会做如下事情：  现在当前函数里（作用域）找这个变量 如果没有则向外层找，如果外层也没，则继续在外层的的外层查找。 当全局作用域也找不到的时候，报错“xxx is not defined”  Demo 0112345678">
-<meta property="og:updated_time" content="2017-07-18T07:19:17.000Z">
+<meta property="og:description" content="background-clipmask-image">
+<meta property="og:updated_time" content="2017-07-26T06:26:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="07.17">
-<meta name="twitter:description" content="一、作用域JavaScript采用词法作用域，即函数执行的时候的作用域由其声明所在的词法位置决定。  函数被调用时会创建一个新的作用域。  当使用变量的时候，JavaScript会做如下事情：  现在当前函数里（作用域）找这个变量 如果没有则向外层找，如果外层也没，则继续在外层的的外层查找。 当全局作用域也找不到的时候，报错“xxx is not defined”  Demo 0112345678">
+<meta name="twitter:title" content="07.26">
+<meta name="twitter:description" content="background-clipmask-image">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://hanchengz.github.io/2017/07/17/07.17/"/>
+  <link rel="canonical" href="http://hanchengz.github.io/2017/07/26/07.26/"/>
 
 
 
 
 
-  <title> 07.17 | Hero </title>
+  <title> 07.26 | Hero </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -249,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/17/07.17/">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/26/07.26/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hancheng Zhou">
@@ -270,7 +270,7 @@
             
             
               
-                07.17
+                07.26
               
             
           </h1>
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T17:25:00+08:00">
-                2017-07-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-26T11:09:49+08:00">
+                2017-07-26
               </time>
             
 
@@ -321,30 +321,7 @@
       
 
       
-        <h1 id="一、作用域"><a href="#一、作用域" class="headerlink" title="一、作用域"></a>一、作用域</h1><p>JavaScript采用词法作用域，即函数执行的时候的作用域由其声明所在的词法位置决定。</p>
-<blockquote>
-<p>函数被调用时会创建一个新的作用域。</p>
-</blockquote>
-<p>当使用变量的时候，JavaScript会做如下事情：</p>
-<ol>
-<li>现在当前函数里（作用域）找这个变量</li>
-<li>如果没有则向外层找，如果外层也没，则继续在外层的的外层查找。</li>
-<li>当全局作用域也找不到的时候，报错“xxx is not defined”</li>
-</ol>
-<h3 id="Demo-01"><a href="#Demo-01" class="headerlink" title="Demo 01"></a>Demo 01</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'hancheng'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">out_out_side</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//这里是out_out_side作用域</span></div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">out_side</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="comment">//这里是out_side作用域</span></div><div class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">in_side</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">//这里是in_side作用域</span></div><div class="line">			<span class="built_in">console</span>.log(name);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">out_out_side()()();</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>多个作用域排列在一起就是一条作用域链；<br>Demo 01的的作用域链用数组表示就是：</p>
-<h3 id="Demo-02"><a href="#Demo-02" class="headerlink" title="Demo 02"></a>Demo 02</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Scopes = [</div><div class="line">	in_side,</div><div class="line">	out_side,</div><div class="line">	out_out_side,</div><div class="line">	GlobalEnv		<span class="comment">//全局</span></div><div class="line">]</div></pre></td></tr></table></figure>
-<p>任何一条作用域链的末尾都是全局作用域。<br>虽然这样做不够准确，但是可以形象的表达出作用域链是什么样的。</p>
-<blockquote>
-<p>寻找某个变量的过程就是遍历作用域链的过程。</p>
-<h3 id="Demo-03"><a href="#Demo-03" class="headerlink" title="Demo 03"></a>Demo 03</h3><p>函数的作用域链在调用前就已经创建好并存在函数本身里了<br>因为是词法作用域，编译器很容易在函数声明的时候预先把作用域链推断出来，并放在函数内部。<br>注意，作用域跟作用域内容很容易混淆，一般而言，作用域内容指的是作用域内的变量，观察下列例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> d = <span class="string">'ddd'</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">sayD</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		d = <span class="string">'changed'</span>;</div><div class="line">	&#125;</div><div class="line">	sayD();</div><div class="line">&#125;</div><div class="line">sayName();</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>sayD的作用域链是[sayD,sayName,GlobalEnv]<br>而d定义在sayName里，这个是作用域里的内容。<br><b>也就是说编译器在解析代码的时候就可以把作用域链推断出来，但不意味着它能解析作用域的内容。</b></p>
-<blockquote>
-<p>作用域指的是一个区域，这个区域内可以声明变量。编译器能推断出作用域之间的前后关系，并得出作用域链，但是不清楚作用域内的变量情况和关系，只有在实际执行过代码之后才能知道这些。</p>
-</blockquote>
-
+        <h1 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a>background-clip</h1><h1 id="mask-image"><a href="#mask-image" class="headerlink" title="mask-image"></a>mask-image</h1>
       
     </div>
 
@@ -380,8 +357,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/16/07.16/" rel="next" title="07.16">
-                <i class="fa fa-chevron-left"></i> 07.16
+              <a href="/2017/07/25/07.25/" rel="next" title="07.25">
+                <i class="fa fa-chevron-left"></i> 07.25
               </a>
             
           </div>
@@ -389,10 +366,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/18/07.18/" rel="prev" title="07.18">
-                07.18 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,7 +476,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、作用域"><span class="nav-number">1.</span> <span class="nav-text">一、作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo-01"><span class="nav-number">1.0.1.</span> <span class="nav-text">Demo 01</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo-02"><span class="nav-number">1.0.2.</span> <span class="nav-text">Demo 02</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo-03"><span class="nav-number">1.0.3.</span> <span class="nav-text">Demo 03</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#background-clip"><span class="nav-number">1.</span> <span class="nav-text">background-clip</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mask-image"><span class="nav-number">2.</span> <span class="nav-text">mask-image</span></a></li></ol></div>
             
 
           </div>
