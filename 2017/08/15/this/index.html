@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="命令行12345678910111213cdcd ..cat [filename]             # 打开文件，查看里面的内容ls                         # 当前目录内的文件ls -a                      # 当前目录内的所有文件，包括隐藏文件pwd                        # 显示当前目录mkdir [filenam">
+<meta name="description" content="关于this的一些知识参考文章：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this 在绝大多数的情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07.10">
-<meta property="og:url" content="http://hanchengz.github.io/2017/07/10/07.10/index.html">
+<meta property="og:title" content="this">
+<meta property="og:url" content="http://hanchengz.github.io/2017/08/15/this/index.html">
 <meta property="og:site_name" content="Hero">
-<meta property="og:description" content="命令行12345678910111213cdcd ..cat [filename]             # 打开文件，查看里面的内容ls                         # 当前目录内的文件ls -a                      # 当前目录内的所有文件，包括隐藏文件pwd                        # 显示当前目录mkdir [filenam">
-<meta property="og:updated_time" content="2017-07-14T13:34:31.000Z">
+<meta property="og:description" content="关于this的一些知识参考文章：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this 在绝大多数的情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用，">
+<meta property="og:updated_time" content="2017-08-15T02:26:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="07.10">
-<meta name="twitter:description" content="命令行12345678910111213cdcd ..cat [filename]             # 打开文件，查看里面的内容ls                         # 当前目录内的文件ls -a                      # 当前目录内的所有文件，包括隐藏文件pwd                        # 显示当前目录mkdir [filenam">
+<meta name="twitter:title" content="this">
+<meta name="twitter:description" content="关于this的一些知识参考文章：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this 在绝大多数的情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用，">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://hanchengz.github.io/2017/07/10/07.10/"/>
+  <link rel="canonical" href="http://hanchengz.github.io/2017/08/15/this/"/>
 
 
 
 
 
-  <title> 07.10 | Hero </title>
+  <title> this | Hero </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -249,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/10/07.10/">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/08/15/this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hancheng Zhou">
@@ -270,7 +270,7 @@
             
             
               
-                07.10
+                this
               
             
           </h1>
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-10T21:28:03+08:00">
-                2017-07-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T09:53:08+08:00">
+                2017-08-15
               </time>
             
 
@@ -321,10 +321,15 @@
       
 
       
-        <h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span></div><div class="line"><span class="built_in">cd</span> ..</div><div class="line">cat [filename]             <span class="comment"># 打开文件，查看里面的内容</span></div><div class="line">ls                         <span class="comment"># 当前目录内的文件</span></div><div class="line">ls -a                      <span class="comment"># 当前目录内的所有文件，包括隐藏文件</span></div><div class="line"><span class="built_in">pwd</span>                        <span class="comment"># 显示当前目录</span></div><div class="line">mkdir [filename]           <span class="comment"># make directory 创建文件夹</span></div><div class="line"><span class="built_in">echo</span> [String]              <span class="comment"># 打印字符串</span></div><div class="line">mv [src] [dest]            <span class="comment"># 可用于重命名文件或移动文件</span></div><div class="line">rm [src]                   <span class="comment"># 删除文件</span></div><div class="line">rm -r [src]                <span class="comment"># 删除文件夹（linux下的参数不是放在末尾的)</span></div><div class="line">cp [src] [dest]            <span class="comment"># 复制文件，从源到终点。可用于实现移动文件</span></div><div class="line">vim [path]                 <span class="comment"># 打开vim</span></div></pre></td></tr></table></figure>
-<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p><a href="http://blog.csdn.net/zhang1027963459/article/details/50478340" target="_blank" rel="external">http://blog.csdn.net/zhang1027963459/article/details/50478340</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> + 仓库地址      <span class="comment"># 首先从github克隆</span></div><div class="line">git add + 文件名          <span class="comment"># untracked files =&gt; new files</span></div><div class="line">git reset                <span class="comment"># 用于将已add的文件reset</span></div><div class="line">git commit -m <span class="string">""</span>         <span class="comment"># 双引号内为此次commit的注释,字符串</span></div><div class="line">git <span class="built_in">log</span></div><div class="line">git status</div><div class="line">git pull origin master</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
-<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo new [blogname]         # 创建新的博客</div><div class="line">hexo generate               # 生成静态资源，简写为hexo g</div><div class="line">hexo server                 # 本地发布，简写为hexo s</div><div class="line">hexo deploy                 # 部署到站点上，简写为hexo d</div><div class="line">http://www.jianshu.com/p/e99ed60390a8</div></pre></td></tr></table></figure>
-
+        <h1 id="关于this的一些知识"><a href="#关于this的一些知识" class="headerlink" title="关于this的一些知识"></a>关于this的一些知识</h1><p>参考文章：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this</a></p>
+<p>在绝大多数的情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用，ES2015引入了支持this词法解析的箭头函数（它在闭合的执行上下文内设置this的值）。</p>
+<h2 id="全局上下文"><a href="#全局上下文" class="headerlink" title="全局上下文"></a>全局上下文</h2><h2 id="函数上下文"><a href="#函数上下文" class="headerlink" title="函数上下文"></a>函数上下文</h2><h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><p>参考文章：<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000</a></p>
+<p>箭头函数相当于匿名函数，并且简化了函数定义。箭头函数有两种格式，只含一个表达式的，可以省略{}和return。还有一种可以包含多条语句，这时的{}和return就不能省略了</p>
+<h2 id="关于箭头函数的this"><a href="#关于箭头函数的this" class="headerlink" title="关于箭头函数的this"></a>关于箭头函数的this</h2><p>箭头函数看上去时匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是<strong>词法作用域</strong>，由上下文确定。</p>
+<p>由于JavaScript函数对this绑定的错误处理，下面的例子无法得到预期结果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">birth</span>: <span class="number">1990</span>,</div><div class="line">	<span class="attr">getAge</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> b = <span class="keyword">this</span>.birth;   <span class="comment">// 1990</span></div><div class="line">		<span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear() - <span class="keyword">this</span>.birth;</div><div class="line">			<span class="comment">// this指向window或undefined</span></div><div class="line">		&#125;;</div><div class="line">		<span class="keyword">return</span> fn();</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="关于函数定义的方式"><a href="#关于函数定义的方式" class="headerlink" title="关于函数定义的方式"></a>关于函数定义的方式</h1><p>要注意的是函数声明有有一个函数声明提升的过程。</p>
+<h2 id="一、函数声明"><a href="#一、函数声明" class="headerlink" title="一、函数声明"></a>一、函数声明</h2><h2 id="二、函数表达式"><a href="#二、函数表达式" class="headerlink" title="二、函数表达式"></a>二、函数表达式</h2>
       
     </div>
 
@@ -360,8 +365,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/10/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/08/10/暑假总结/" rel="next" title="暑假总结">
+                <i class="fa fa-chevron-left"></i> 暑假总结
               </a>
             
           </div>
@@ -369,10 +374,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/11/07.11/" rel="prev" title="07.11">
-                07.11 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -483,7 +484,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令行"><span class="nav-number">1.</span> <span class="nav-text">命令行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git"><span class="nav-number">2.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo"><span class="nav-number">3.</span> <span class="nav-text">hexo</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于this的一些知识"><span class="nav-number">1.</span> <span class="nav-text">关于this的一些知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局上下文"><span class="nav-number">1.1.</span> <span class="nav-text">全局上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数上下文"><span class="nav-number">1.2.</span> <span class="nav-text">函数上下文</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#箭头函数"><span class="nav-number">2.</span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于箭头函数的this"><span class="nav-number">2.1.</span> <span class="nav-text">关于箭头函数的this</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于函数定义的方式"><span class="nav-number">3.</span> <span class="nav-text">关于函数定义的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、函数声明"><span class="nav-number">3.1.</span> <span class="nav-text">一、函数声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、函数表达式"><span class="nav-number">3.2.</span> <span class="nav-text">二、函数表达式</span></a></li></ol></li></ol></div>
             
 
           </div>
