@@ -1,0 +1,677 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="关于对象看了一下创建对象的几种方式。 一、工厂模式123456789101112function createPerson(name,age,job)&amp;#123;	var o = new Object();	o.name = name;	o.age = age;	o.job = job;	o.sayName = function()&amp;#123;		alert(this.name);	&amp;#125;;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象">
+<meta property="og:url" content="http://hanchengz.github.io/2017/09/22/对象/index.html">
+<meta property="og:site_name" content="Hero">
+<meta property="og:description" content="关于对象看了一下创建对象的几种方式。 一、工厂模式123456789101112function createPerson(name,age,job)&amp;#123;	var o = new Object();	o.name = name;	o.age = age;	o.job = job;	o.sayName = function()&amp;#123;		alert(this.name);	&amp;#125;;">
+<meta property="og:updated_time" content="2017-09-22T13:56:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对象">
+<meta name="twitter:description" content="关于对象看了一下创建对象的几种方式。 一、工厂模式123456789101112function createPerson(name,age,job)&amp;#123;	var o = new Object();	o.name = name;	o.age = age;	o.job = job;	o.sayName = function()&amp;#123;		alert(this.name);	&amp;#125;;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Penulis'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://hanchengz.github.io/2017/09/22/对象/"/>
+
+
+
+
+
+  <title> 对象 | Hero </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hero</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Beranda
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Arsip
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/09/22/对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                对象
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Diposting di</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T19:09:51+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="关于对象"><a href="#关于对象" class="headerlink" title="关于对象"></a>关于对象</h1><p>看了一下创建对象的几种方式。</p>
+<h2 id="一、工厂模式"><a href="#一、工厂模式" class="headerlink" title="一、工厂模式"></a>一、工厂模式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">	o.name = name;</div><div class="line">	o.age = age;</div><div class="line">	o.job = job;</div><div class="line">	o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">return</span> o;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"hello"</span>,<span class="number">19</span>,<span class="string">"engineer"</span>);</div><div class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">"heo"</span>,<span class="number">119</span>,<span class="string">"Engineer"</span>);</div></pre></td></tr></table></figure>
+<p>虽然这个函数可以根据传入的参数来构造多个相似的对象，但是没有解决对象识别问题(即判别该对象是什么类型)。</p>
+<h2 id="二、构造函数模式"><a href="#二、构造函数模式" class="headerlink" title="二、构造函数模式"></a>二、构造函数模式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">	<span class="keyword">this</span>.job = job;</div><div class="line">	<span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"hello"</span>,<span class="number">19</span>,<span class="string">"engineer"</span>);</div><div class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"glory"</span>,<span class="number">22</span>,<span class="string">"sb"</span>);</div></pre></td></tr></table></figure>
+<p>person1和person2分别保存着Person的一个不同的实例。这两个对象都有一个constructor(构造函数)属性，该属性指向Person。</p>
+<p>该模式与工厂模式的不同在于：</p>
+<ul>
+<li>没有显式的创建对象</li>
+<li>直接将属性和方法赋值给了this对象</li>
+<li>没有return</li>
+</ul>
+<p>相比于工厂模式的无法识别对象类型，该模式可以使用instanceof操作符检测到对象类型。<br>创建自定义的构造函数意味着可以将它的实例标识为一种特定的类型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> Obeject);	<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> Person);		<span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<p>使用构造函数模式必须使用new操作符，以这种方式调用构造函数会经历以下四个过程：</p>
+<ol>
+<li>创建一个新的对象</li>
+<li>将构造函数的作用域复制给新对象（因此this对象就只指向了这个新对象）</li>
+<li>执行构造函数中的代码（为这个新对象添加属性）</li>
+<li>返回新对象</li>
+</ol>
+<p>在使用构造函数模式的时候需要注意到，每个方法都要在每个实例上重新创建一次，上面的person1和person2中都有一个sayName方法，但这两个方法并不是同一个function的实例。在ECMAScript中，函数也是对象，因此每定义一个函数，也就是实例化了一个对象。</p>
+<h3 id="三、原型模式"><a href="#三、原型模式" class="headerlink" title="三、原型模式"></a>三、原型模式</h3><p>我们创建的每个函数都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，该对象包含可以由特定类型的所有实例共享的属性和方法。prototrpe就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以让所有的对象实例共享它所包含的属性和方法。</p>
+<p>所有的原型对象都会自动获得一个constructor(构造函数)属性，这个属性是一个指向prototype属性所在函数的指针。Person.prototype.constructor指向Person。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.name = <span class="string">"Nicholas"</span>;</div><div class="line">Person.prototype.age = <span class="number">29</span>;</div><div class="line">Person.prototype.job = <span class="string">"engineer"</span>;</div><div class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</div><div class="line"><span class="comment">// person1.sayName();		//"Nicholas"</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person()l</div><div class="line"><span class="comment">// person2.sayName();		//"Nicholas"</span></div><div class="line"></div><div class="line">alert(person1.sayName == person2.sayName);		<span class="comment">//true</span></div><div class="line"><span class="comment">//person1和person2访问的都是同一组属性和同一个sayName()函数</span></div></pre></td></tr></table></figure></p>
+<p>当调用构造函数创建一个新的实例后，该实例的内部会包含一个指针（内部属性），指向构造函数的原型对象。ES5中该指针为[[Prototype]]，在脚本中无法访问到该属性。但在浏览器中可以通过<em>proto</em>访问到。需要明确的是，这个指针连接的是实例与构造函数中的原型对象，而不是实例与构造函数。</p>
+<p>虽然我们无法访问到[[Prototype]]，但是可以通过isPrototypeOf()方法来确定对象之间是否存在这种关系。通过Object.getPrototypeOf()来返回[[Prototype]]的值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(Person.prototype.isProtoTypeOf(person1));		<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.isProtoTypeOf(person2));		<span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person1) == Person.prototype);	<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person1).name);	<span class="comment">//"Nicholas"</span></div></pre></td></tr></table></figure></p>
+<p>当调用实例中的某个属性或方法时，会执行一次搜索，首先从对象实例开始，如果找到了则返回该属性的值。若没有则继续搜索指针指向的原型对象。这个过程有点类似于作用域链。<br>虽然我们可以通过对象实例访问到原型对象中的值，但是却不能通过对象实例重写原型对象中的值。如果我们在对象实例中添加一个与原型对象中同名的属性，这样会屏蔽原型对象中的那个属性。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/18/迭代方法/" rel="next" title="迭代方法">
+                <i class="fa fa-chevron-left"></i> 迭代方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Daftar Isi
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Ikhtisar
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Hancheng Zhou" />
+          <p class="site-author-name" itemprop="name">Hancheng Zhou</p>
+           
+              <p class="site-description motion-element" itemprop="description">Blog</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">posting</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于对象"><span class="nav-number">1.</span> <span class="nav-text">关于对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、工厂模式"><span class="nav-number">1.1.</span> <span class="nav-text">一、工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、构造函数模式"><span class="nav-number">1.2.</span> <span class="nav-text">二、构造函数模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三、原型模式"><span class="nav-number">1.2.1.</span> <span class="nav-text">三、原型模式</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hancheng Zhou</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Tema -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

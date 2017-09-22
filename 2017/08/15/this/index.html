@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://hanchengz.github.io/2017/08/15/this/index.html">
 <meta property="og:site_name" content="Hero">
 <meta property="og:description" content="关于this的一些知识参考文章：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this 在绝大多数的情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用，">
-<meta property="og:updated_time" content="2017-08-15T02:26:07.000Z">
+<meta property="og:updated_time" content="2017-09-09T07:57:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this">
 <meta name="twitter:description" content="关于this的一些知识参考文章：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this 在绝大多数的情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用，">
@@ -110,7 +110,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'Penulis'
     },
     algolia: {
       applicationID: '',
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Beranda
           </a>
         </li>
       
@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Arsip
           </a>
         </li>
       
@@ -283,7 +283,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T09:53:08+08:00">
                 2017-08-15
@@ -328,8 +328,10 @@
 <h2 id="关于箭头函数的this"><a href="#关于箭头函数的this" class="headerlink" title="关于箭头函数的this"></a>关于箭头函数的this</h2><p>箭头函数看上去时匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是<strong>词法作用域</strong>，由上下文确定。</p>
 <p>由于JavaScript函数对this绑定的错误处理，下面的例子无法得到预期结果</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">birth</span>: <span class="number">1990</span>,</div><div class="line">	<span class="attr">getAge</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> b = <span class="keyword">this</span>.birth;   <span class="comment">// 1990</span></div><div class="line">		<span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear() - <span class="keyword">this</span>.birth;</div><div class="line">			<span class="comment">// this指向window或undefined</span></div><div class="line">		&#125;;</div><div class="line">		<span class="keyword">return</span> fn();</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h1 id="关于函数定义的方式"><a href="#关于函数定义的方式" class="headerlink" title="关于函数定义的方式"></a>关于函数定义的方式</h1><p>要注意的是函数声明有有一个函数声明提升的过程。</p>
-<h2 id="一、函数声明"><a href="#一、函数声明" class="headerlink" title="一、函数声明"></a>一、函数声明</h2><h2 id="二、函数表达式"><a href="#二、函数表达式" class="headerlink" title="二、函数表达式"></a>二、函数表达式</h2>
+<h1 id="关于函数定义的方式"><a href="#关于函数定义的方式" class="headerlink" title="关于函数定义的方式"></a>关于函数定义的方式</h1><p>定义函数的方式有两种，一是函数声明，而是函数表达式。</p>
+<h2 id="一、函数声明"><a href="#一、函数声明" class="headerlink" title="一、函数声明"></a>一、函数声明</h2><p>关于函数声明最重要的一点就是<strong>函数声明提升</strong>。就是在执行代码之前，会先读取函数声明。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//有效</span></div></pre></td></tr></table></figure></p>
+<h2 id="二、函数表达式"><a href="#二、函数表达式" class="headerlink" title="二、函数表达式"></a>二、函数表达式</h2><p>即创建一个函数并将它赋值给一个变量，这种情况下创建的函数为匿名函数，因为function关键字后面没有标识符。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test();</div><div class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//报错,因为没有函数声明提升。不可以在声明之前调用。</span></div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -426,10 +428,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Daftar Isi
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Ikhtisar
           </li>
         </ul>
       
@@ -449,8 +451,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">posting</span>
               </a>
             </div>
           
@@ -520,11 +522,11 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

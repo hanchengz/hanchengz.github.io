@@ -109,7 +109,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'Penulis'
     },
     algolia: {
       applicationID: '',
@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Beranda
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Arsip
           </a>
         </li>
       
@@ -240,6 +240,151 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/09/22/对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/22/对象/" itemprop="url">
+                  对象
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Diposting di</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T19:09:51+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关于对象"><a href="#关于对象" class="headerlink" title="关于对象"></a>关于对象</h1><p>看了一下创建对象的几种方式。</p>
+<h2 id="一、工厂模式"><a href="#一、工厂模式" class="headerlink" title="一、工厂模式"></a>一、工厂模式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">	o.name = name;</div><div class="line">	o.age = age;</div><div class="line">	o.job = job;</div><div class="line">	o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">return</span> o;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"hello"</span>,<span class="number">19</span>,<span class="string">"engineer"</span>);</div><div class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">"heo"</span>,<span class="number">119</span>,<span class="string">"Engineer"</span>);</div></pre></td></tr></table></figure>
+<p>虽然这个函数可以根据传入的参数来构造多个相似的对象，但是没有解决对象识别问题(即判别该对象是什么类型)。</p>
+<h2 id="二、构造函数模式"><a href="#二、构造函数模式" class="headerlink" title="二、构造函数模式"></a>二、构造函数模式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">	<span class="keyword">this</span>.job = job;</div><div class="line">	<span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"hello"</span>,<span class="number">19</span>,<span class="string">"engineer"</span>);</div><div class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"glory"</span>,<span class="number">22</span>,<span class="string">"sb"</span>);</div></pre></td></tr></table></figure>
+<p>person1和person2分别保存着Person的一个不同的实例。这两个对象都有一个constructor(构造函数)属性，该属性指向Person。</p>
+<p>该模式与工厂模式的不同在于：</p>
+<ul>
+<li>没有显式的创建对象</li>
+<li>直接将属性和方法赋值给了this对象</li>
+<li>没有return</li>
+</ul>
+<p>相比于工厂模式的无法识别对象类型，该模式可以使用instanceof操作符检测到对象类型。<br>创建自定义的构造函数意味着可以将它的实例标识为一种特定的类型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> Obeject);	<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> Person);		<span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<p>使用构造函数模式必须使用new操作符，以这种方式调用构造函数会经历以下四个过程：</p>
+<ol>
+<li>创建一个新的对象</li>
+<li>将构造函数的作用域复制给新对象（因此this对象就只指向了这个新对象）</li>
+<li>执行构造函数中的代码（为这个新对象添加属性）</li>
+<li>返回新对象</li>
+</ol>
+<p>在使用构造函数模式的时候需要注意到，每个方法都要在每个实例上重新创建一次，上面的person1和person2中都有一个sayName方法，但这两个方法并不是同一个function的实例。在ECMAScript中，函数也是对象，因此每定义一个函数，也就是实例化了一个对象。</p>
+<h3 id="三、原型模式"><a href="#三、原型模式" class="headerlink" title="三、原型模式"></a>三、原型模式</h3><p>我们创建的每个函数都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，该对象包含可以由特定类型的所有实例共享的属性和方法。prototrpe就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以让所有的对象实例共享它所包含的属性和方法。</p>
+<p>所有的原型对象都会自动获得一个constructor(构造函数)属性，这个属性是一个指向prototype属性所在函数的指针。Person.prototype.constructor指向Person。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.name = <span class="string">"Nicholas"</span>;</div><div class="line">Person.prototype.age = <span class="number">29</span>;</div><div class="line">Person.prototype.job = <span class="string">"engineer"</span>;</div><div class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</div><div class="line"><span class="comment">// person1.sayName();		//"Nicholas"</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person()l</div><div class="line"><span class="comment">// person2.sayName();		//"Nicholas"</span></div><div class="line"></div><div class="line">alert(person1.sayName == person2.sayName);		<span class="comment">//true</span></div><div class="line"><span class="comment">//person1和person2访问的都是同一组属性和同一个sayName()函数</span></div></pre></td></tr></table></figure></p>
+<p>当调用构造函数创建一个新的实例后，该实例的内部会包含一个指针（内部属性），指向构造函数的原型对象。ES5中该指针为[[Prototype]]，在脚本中无法访问到该属性。但在浏览器中可以通过<em>proto</em>访问到。需要明确的是，这个指针连接的是实例与构造函数中的原型对象，而不是实例与构造函数。</p>
+<p>虽然我们无法访问到[[Prototype]]，但是可以通过isPrototypeOf()方法来确定对象之间是否存在这种关系。通过Object.getPrototypeOf()来返回[[Prototype]]的值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(Person.prototype.isProtoTypeOf(person1));		<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.isProtoTypeOf(person2));		<span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person1) == Person.prototype);	<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person1).name);	<span class="comment">//"Nicholas"</span></div></pre></td></tr></table></figure></p>
+<p>当调用实例中的某个属性或方法时，会执行一次搜索，首先从对象实例开始，如果找到了则返回该属性的值。若没有则继续搜索指针指向的原型对象。这个过程有点类似于作用域链。<br>虽然我们可以通过对象实例访问到原型对象中的值，但是却不能通过对象实例重写原型对象中的值。如果我们在对象实例中添加一个与原型对象中同名的属性，这样会屏蔽原型对象中的那个属性。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -287,7 +432,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T11:00:19+08:00">
                 2017-08-18
@@ -328,7 +473,7 @@
         
           
             <p>map有返回值（返回值为每次函数调用结果组成的数组），forEach没有</p>
-<p>在使用map时，数组里面的值是基本类型时，原数组不改变。但是若是对象的话，则会改变。这跟变量值的复制有关。引用类型。</p>
+<p>在使用map和forEach时，数组里面的值是基本类型时，原数组不改变。但是若是对象的话，则会改变。这跟变量值的复制有关。引用类型。</p>
 
           
         
@@ -409,7 +554,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T09:53:08+08:00">
                 2017-08-15
@@ -456,8 +601,10 @@
 <h2 id="关于箭头函数的this"><a href="#关于箭头函数的this" class="headerlink" title="关于箭头函数的this"></a>关于箭头函数的this</h2><p>箭头函数看上去时匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是<strong>词法作用域</strong>，由上下文确定。</p>
 <p>由于JavaScript函数对this绑定的错误处理，下面的例子无法得到预期结果</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">birth</span>: <span class="number">1990</span>,</div><div class="line">	<span class="attr">getAge</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> b = <span class="keyword">this</span>.birth;   <span class="comment">// 1990</span></div><div class="line">		<span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear() - <span class="keyword">this</span>.birth;</div><div class="line">			<span class="comment">// this指向window或undefined</span></div><div class="line">		&#125;;</div><div class="line">		<span class="keyword">return</span> fn();</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h1 id="关于函数定义的方式"><a href="#关于函数定义的方式" class="headerlink" title="关于函数定义的方式"></a>关于函数定义的方式</h1><p>要注意的是函数声明有有一个函数声明提升的过程。</p>
-<h2 id="一、函数声明"><a href="#一、函数声明" class="headerlink" title="一、函数声明"></a>一、函数声明</h2><h2 id="二、函数表达式"><a href="#二、函数表达式" class="headerlink" title="二、函数表达式"></a>二、函数表达式</h2>
+<h1 id="关于函数定义的方式"><a href="#关于函数定义的方式" class="headerlink" title="关于函数定义的方式"></a>关于函数定义的方式</h1><p>定义函数的方式有两种，一是函数声明，而是函数表达式。</p>
+<h2 id="一、函数声明"><a href="#一、函数声明" class="headerlink" title="一、函数声明"></a>一、函数声明</h2><p>关于函数声明最重要的一点就是<strong>函数声明提升</strong>。就是在执行代码之前，会先读取函数声明。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//有效</span></div></pre></td></tr></table></figure></p>
+<h2 id="二、函数表达式"><a href="#二、函数表达式" class="headerlink" title="二、函数表达式"></a>二、函数表达式</h2><p>即创建一个函数并将它赋值给一个变量，这种情况下创建的函数为匿名函数，因为function关键字后面没有标识符。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test();</div><div class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//报错,因为没有函数声明提升。不可以在声明之前调用。</span></div></pre></td></tr></table></figure></p>
+
           
         
       
@@ -537,7 +684,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T18:58:16+08:00">
                 2017-08-10
@@ -581,7 +728,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/10/暑假总结/#more" rel="contents">
-              Weiterlesen &raquo;
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -663,7 +810,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T17:03:33+08:00">
                 2017-07-27
@@ -786,7 +933,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-26T11:09:49+08:00">
                 2017-07-26
@@ -908,7 +1055,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-25T09:53:01+08:00">
                 2017-07-25
@@ -1034,7 +1181,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T11:08:42+08:00">
                 2017-07-24
@@ -1079,7 +1226,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/24/07.24/#more" rel="contents">
-              Weiterlesen &raquo;
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1161,7 +1308,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-21T16:11:52+08:00">
                 2017-07-21
@@ -1288,7 +1435,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-20T21:11:13+08:00">
                 2017-07-20
@@ -1331,148 +1478,6 @@
             <h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>工厂模式是软件工程领域一种广为人知的设计模式，这种模式抽象了创建具体对象的过程。考虑到在ECMAScript中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">	o.name = name;</div><div class="line">	o.age = age;</div><div class="line">	o.job = job;</div><div class="line">	o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">return</span> o;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">'Nicolas'</span>,<span class="number">29</span>,<span class="string">'Software Engineer'</span>);</div><div class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">'Greg'</span>,<span class="number">27</span>,<span class="string">'Doctor'</span>);</div></pre></td></tr></table></figure></p>
 
           
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/19/07.19/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/19/07.19/" itemprop="url">
-                  07.19
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T09:52:46+08:00">
-                2017-07-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>函数不return的话，是不会有返回值的！！</p>
-<h1 id="indexOf的用法"><a href="#indexOf的用法" class="headerlink" title="indexOf的用法"></a>indexOf的用法</h1><p>该方法从头到尾地检索字符串 stringObject，看它是否含有子串searchvalue。开始检索的位置位于字符串的fromindex处或字符串的开头（没有指定fromindex时）。如果找到一个searchvalue，则返回searchvalue的第一次出现的位置。stringObject中的字符位置是从0开始的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stringObject.indexOf(searchvalue,fromindex);</div><div class="line"><span class="comment">// 如果要检索的字符串没有出现，则该方法返回-1。</span></div></pre></td></tr></table></figure></p>
-<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h3 id="复制变量"><a href="#复制变量" class="headerlink" title="复制变量"></a>复制变量</h3><p>从一个变量向另一个变量复制基本类型值和引用类型值时，也有不同。</p>
-<p>简单来说就是基本类型值复制后，两个变量互不相关。</p>
-<p>而引用类型值复制之后，两个变量将引用同一个对象。改变其中一个变量，就会影响另外一个。（javascript中不允许直接访问内存中的位置，即不能直接操作对象的内存空间。所以在操作对象时，实际上是在操作对象的引用。）</p>
-<ul>
-<li><p>基本类型值：如果从一个变量向另一个变量复制基本类型的值，会在变量对象上创建一个新值，然后把该值复制到为新变量分配的位置上。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">5</span>;</div><div class="line"><span class="keyword">var</span> num2 = num1;</div><div class="line"><span class="comment">// 在此，num1保存的值是5。当使用num1的值来初始化num2时，num2中也保存了值5。</span></div><div class="line"><span class="comment">// 但num2中的5与num1中的5是完全独立的，该值只是num1中5的一个副本。</span></div><div class="line"><span class="comment">// 此后，这两个变量可以参与任何操作而不会互相影响。</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>引用类型值：当一个变量向另一个变量复制引用类型的值时，同样也会将储存在变量对象中的值复制一份放到为新变量分配的空间中。不同的是，这个值的副本实际是一个指针，而这个指针指向储存在堆中的一个对象。复制操作结束后，两个变量将引用同一个对象。</p>
-<h1 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h1><p>ECMAScript中所有函数的参数都是 <strong>按值传递</strong> 的。</p>
-</li>
-</ul>
-<h1 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h1><ul>
-<li>typeof：常用于检测基本数据类型，但在检测引用数据类型时，返回值必是Object。</li>
-<li>instanceof：检测属于什么类型的对象。</li>
-</ul>
-<h1 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h1><p>执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的<strong>变量对象</strong>，环境中定义的所有变量和函数都保存在这个对象。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/19/07.19/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1554,8 +1559,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">posting</span>
               </a>
             </div>
           
@@ -1609,11 +1614,11 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
