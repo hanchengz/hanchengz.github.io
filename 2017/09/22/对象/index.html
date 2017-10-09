@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://hanchengz.github.io/2017/09/22/对象/index.html">
 <meta property="og:site_name" content="Hero">
 <meta property="og:description" content="关于对象看了一下创建对象的几种方式。 一、工厂模式123456789101112function createPerson(name,age,job)&amp;#123;	var o = new Object();	o.name = name;	o.age = age;	o.job = job;	o.sayName = function()&amp;#123;		alert(this.name);	&amp;#125;;">
-<meta property="og:updated_time" content="2017-09-22T13:56:45.000Z">
+<meta property="og:updated_time" content="2017-09-29T10:50:06.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对象">
 <meta name="twitter:description" content="关于对象看了一下创建对象的几种方式。 一、工厂模式123456789101112function createPerson(name,age,job)&amp;#123;	var o = new Object();	o.name = name;	o.age = age;	o.job = job;	o.sayName = function()&amp;#123;		alert(this.name);	&amp;#125;;">
@@ -110,7 +110,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Penulis'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Home
           </a>
         </li>
       
@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archives
           </a>
         </li>
       
@@ -283,7 +283,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T19:09:51+08:00">
                 2017-09-22
@@ -346,6 +346,8 @@
 <p>当调用构造函数创建一个新的实例后，该实例的内部会包含一个指针（内部属性），指向构造函数的原型对象。ES5中该指针为[[Prototype]]，在脚本中无法访问到该属性。但在浏览器中可以通过<em>proto</em>访问到。需要明确的是，这个指针连接的是实例与构造函数中的原型对象，而不是实例与构造函数。</p>
 <p>虽然我们无法访问到[[Prototype]]，但是可以通过isPrototypeOf()方法来确定对象之间是否存在这种关系。通过Object.getPrototypeOf()来返回[[Prototype]]的值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(Person.prototype.isProtoTypeOf(person1));		<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.isProtoTypeOf(person2));		<span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person1) == Person.prototype);	<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person1).name);	<span class="comment">//"Nicholas"</span></div></pre></td></tr></table></figure></p>
 <p>当调用实例中的某个属性或方法时，会执行一次搜索，首先从对象实例开始，如果找到了则返回该属性的值。若没有则继续搜索指针指向的原型对象。这个过程有点类似于作用域链。<br>虽然我们可以通过对象实例访问到原型对象中的值，但是却不能通过对象实例重写原型对象中的值。如果我们在对象实例中添加一个与原型对象中同名的属性，这样会屏蔽原型对象中的那个属性。</p>
+<p>更为简洁的原型语法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">	<span class="attr">constructor</span>: Person,</div><div class="line">	<span class="attr">name</span>: <span class="string">"Nicholas"</span>,</div><div class="line">	<span class="attr">age</span>: <span class="number">22</span>,</div><div class="line">	<span class="attr">sayName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>上述代码以对象字面量的形式创建了一个新对象，相当于重写了Person.prototype属性，唯一的不同就是constructor属性不再指向Person了，而是指向Object构造函数。若需要constructor的值，可在代码中将constructor设置为Person。<br>同时会导致它的[[Enumerable]]特性被设置为true。默认情况下，原生的constructor属性是不可枚举的。</p>
 
       
     </div>
@@ -391,6 +393,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/08/Vue/" rel="prev" title="Vue">
+                Vue <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -439,10 +445,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Daftar Isi
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Ikhtisar
+            Overview
           </li>
         </ul>
       
@@ -462,8 +468,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">posting</span>
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -537,7 +543,7 @@
 </div>
 
 <div class="theme-info">
-  Tema -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
