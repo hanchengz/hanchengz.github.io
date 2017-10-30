@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="yyy," />
 
 
 
@@ -87,16 +87,17 @@
 
 
 
-<meta name="description" content="创建对象工厂模式工厂模式是软件工程领域一种广为人知的设计模式，这种模式抽象了创建具体对象的过程。考虑到在ECMAScript中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节。123456789101112function createPerson(name,age,job)&amp;#123;	var o = new Object();	o.name = name;	o.age">
+<meta name="description" content="这两天在看Vue的组件。">
+<meta name="keywords" content="yyy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07.20">
-<meta property="og:url" content="http://hanchengz.github.io/2017/07/20/07.20/index.html">
+<meta property="og:title" content="vue.component">
+<meta property="og:url" content="http://hanchengz.github.io/2017/10/21/vue-component/index.html">
 <meta property="og:site_name" content="Hero">
-<meta property="og:description" content="创建对象工厂模式工厂模式是软件工程领域一种广为人知的设计模式，这种模式抽象了创建具体对象的过程。考虑到在ECMAScript中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节。123456789101112function createPerson(name,age,job)&amp;#123;	var o = new Object();	o.name = name;	o.age">
-<meta property="og:updated_time" content="2017-07-24T08:46:05.000Z">
+<meta property="og:description" content="这两天在看Vue的组件。">
+<meta property="og:updated_time" content="2017-10-30T11:23:58.961Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="07.20">
-<meta name="twitter:description" content="创建对象工厂模式工厂模式是软件工程领域一种广为人知的设计模式，这种模式抽象了创建具体对象的过程。考虑到在ECMAScript中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节。123456789101112function createPerson(name,age,job)&amp;#123;	var o = new Object();	o.name = name;	o.age">
+<meta name="twitter:title" content="vue.component">
+<meta name="twitter:description" content="这两天在看Vue的组件。">
 
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://hanchengz.github.io/2017/07/20/07.20/"/>
+  <link rel="canonical" href="http://hanchengz.github.io/2017/10/21/vue-component/"/>
 
 
 
 
 
-  <title> 07.20 | Hero </title>
+  <title> vue.component | Hero </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -249,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/20/07.20/">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/10/21/vue-component/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hancheng Zhou">
@@ -270,7 +271,7 @@
             
             
               
-                07.20
+                vue.component
               
             
           </h1>
@@ -285,8 +286,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-20T21:11:13+08:00">
-                2017-07-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-21T22:36:10+08:00">
+                2017-10-21
               </time>
             
 
@@ -321,7 +322,7 @@
       
 
       
-        <h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>工厂模式是软件工程领域一种广为人知的设计模式，这种模式抽象了创建具体对象的过程。考虑到在ECMAScript中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">	o.name = name;</div><div class="line">	o.age = age;</div><div class="line">	o.job = job;</div><div class="line">	o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">return</span> o;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">'Nicolas'</span>,<span class="number">29</span>,<span class="string">'Software Engineer'</span>);</div><div class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">'Greg'</span>,<span class="number">27</span>,<span class="string">'Doctor'</span>);</div></pre></td></tr></table></figure></p>
+        <p>这两天在看Vue的组件。</p>
 
       
     </div>
@@ -349,6 +350,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/yyy/" rel="tag"># yyy</a>
+          
+        </div>
+      
 
       
         
@@ -358,8 +365,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/19/07.19/" rel="next" title="07.19">
-                <i class="fa fa-chevron-left"></i> 07.19
+              <a href="/2017/10/16/reduce/" rel="next" title="reduce">
+                <i class="fa fa-chevron-left"></i> reduce
               </a>
             
           </div>
@@ -368,8 +375,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/21/07.21/" rel="prev" title="07.21">
-                07.21 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/30/关于闭包/" rel="prev" title="关于闭包">
+                关于闭包 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -417,17 +424,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -480,22 +478,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建对象"><span class="nav-number">1.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.0.1.</span> <span class="nav-text">工厂模式</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

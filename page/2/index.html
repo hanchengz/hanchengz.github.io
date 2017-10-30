@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -240,6 +240,386 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/25/07.25/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/25/07.25/" itemprop="url">
+                  07.25
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-25T09:53:01+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="background-size"><a href="#background-size" class="headerlink" title="background-size"></a>background-size</h1><p>参考文章：<a href="https://www.w3cplus.com/content/css3-background-size" target="_blank" rel="external">https://www.w3cplus.com/content/css3-background-size</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-size: auto || &lt;length&gt; || &lt;percentage&gt; || cover || contain</div></pre></td></tr></table></figure></p>
+<h3 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h3><p>此值为默认值，保持背景图片的原始高度和宽度。</p>
+<h3 id="cover"><a href="#cover" class="headerlink" title="cover"></a>cover</h3><p>此值是将图片放大，以铺满整个容器，这个主要运用在当图片小于容器时，由无法使用background-repeat来实现，此时就可以使用cover，将背景图片放大到适合容器大小，但这种方法会使图片失真。只会将宽度或高度中的一项放大至撑满容器，如水平方向撑满容器完整显示，则垂直方向不一定完整显示。</p>
+<h3 id="contain"><a href="#contain" class="headerlink" title="contain"></a>contain</h3><p>此值刚好与cover相反，主要用于将图片缩小。这种方法也会导致图片失真。可能出现水平方向撑满容器，但高度方向不撑满容器。</p>
+<h1 id="linear-gradient"><a href="#linear-gradient" class="headerlink" title="linear-gradient"></a>linear-gradient</h1><p>CSS线性渐变不是一个CSS<code>&lt;color&gt;</code>，而是一个没有内在尺寸的<strong> 图像 </strong>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">left</span>,<span class="selector-id">#000</span>,<span class="selector-id">#FFF</span>);</div><div class="line">&lt;!<span class="selector-tag">--</span> 从左侧开始向右渐变，从黑变白 <span class="selector-tag">--</span>&gt;</div><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">bottom</span>,<span class="selector-id">#000</span>,<span class="selector-id">#FFF</span>);</div><div class="line">&lt;!<span class="selector-tag">--</span> 从底部开始向上渐变，从黑变白 <span class="selector-tag">--</span>&gt;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">-webkit-linear-gradient</span>(0,<span class="selector-id">#000</span>,<span class="selector-id">#FFF</span>);</div><div class="line">&lt;!<span class="selector-tag">--</span> 因为线性渐变，所以实际上是生成了一张图像，而<span class="selector-tag">background</span>是很多属性的集合 <span class="selector-tag">--</span>&gt;</div><div class="line">&lt;!<span class="selector-tag">--</span> 所以建议在使用渐变时写成<span class="selector-tag">background-image</span> <span class="selector-tag">--</span>&gt;</div><div class="line">&lt;!<span class="selector-tag">--</span> 当指定角度时，它是由水平线与渐变线产生的角度，逆时针方向 <span class="selector-tag">--</span>&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h1><p>参考文章：<a href="http://www.cnblogs.com/cnblogsfans/p/5095443.html" target="_blank" rel="external">http://www.cnblogs.com/cnblogsfans/p/5095443.html</a></p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><h3 id="task"><a href="#task" class="headerlink" title="task"></a>task</h3><h3 id="dest"><a href="#dest" class="headerlink" title="dest"></a>dest</h3><h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/24/07.24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/24/07.24/" itemprop="url">
+                  07.24
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T11:08:42+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><h3 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a>XMLHttpRequest对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
+<p>在使用xhr对象时，要调用的第一个方法是open()，它接受三个参数，要发送的请求的类型（get，post等）、请求的URL和表示是否异步发送请求的布尔值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">"get"</span>,<span class="string">"example.php"</span>,<span class="literal">false</span>);</div><div class="line"><span class="comment">// 这行代码会启动一个针对example.php的GET请求。</span></div><div class="line"><span class="comment">// URL相对于执行代码的当前页面（可以是也对路径）</span></div><div class="line"><span class="comment">// 调用open()方法并不会真正发送请求，而只是启动一个请求以备发送。</span></div></pre></td></tr></table></figure></p>
+<p><strong> 只能向同一个域中使用相同端口和协议的URL发送请求，如果URL与启动请求的页面有任何差别，都会引发安全错误。 </strong><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/24/07.24/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/21/07.21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/21/07.21/" itemprop="url">
+                  07.21
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-21T16:11:52+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h1><h3 id="ctx-save"><a href="#ctx-save" class="headerlink" title="ctx.save()"></a>ctx.save()</h3><p>该方法是Canvas 2D API通过将当前状态放入栈中，保存canvas全部状态的方法</p>
+<h3 id="ctx-restore"><a href="#ctx-restore" class="headerlink" title="ctx.restore();"></a>ctx.restore();</h3><p>该方法是Canvas 2D API通过在绘图状态栈中弹出顶端的状态，将canvas恢复到最近的保存状态的方法，。如果没有保存状态，此方法不做任何改变。</p>
+<blockquote>
+<p>在使用上述方法时，要注意的是每当restore之后，栈中保存的状态就被弹出。若save之前再restore，则栈中无保存状态，不弹出。</p>
+</blockquote>
+<h3 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h3><p>该方法会改变canvas中原点的位置，主要用于rotate。<br>注意在rotate后将坐标原点更改回初始位置。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.translate(x,y);</div></pre></td></tr></table></figure></p>
+<h3 id="rotate"><a href="#rotate" class="headerlink" title="rotate"></a>rotate</h3><p>该方法在变换矩阵中增加旋转的方法。角度变量表示一个顺时针旋转角度并且用弧度表示。<br>旋转中心点一直是canvas的起始点。如果想改变中心点，我们可以通过translate()方法移动canvas。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -287,7 +667,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-20T21:11:13+08:00">
                 2017-07-20
@@ -408,7 +788,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T09:52:46+08:00">
                 2017-07-19
@@ -468,7 +848,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/19/07.19/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -550,7 +930,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T23:14:37+08:00">
                 2017-07-18
@@ -702,7 +1082,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T17:25:00+08:00">
                 2017-07-17
@@ -755,7 +1135,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/17/07.17/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -837,7 +1217,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-16T01:15:41+08:00">
                 2017-07-16
@@ -882,7 +1262,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/16/07.16/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -964,7 +1344,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T22:23:22+08:00">
                 2017-07-14
@@ -1086,7 +1466,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-13T15:43:45+08:00">
                 2017-07-13
@@ -1153,388 +1533,10 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/13/07.13/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/12/07.12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/12/07.12/" itemprop="url">
-                  07.12
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-12T09:16:53+08:00">
-                2017-07-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="一、CSS3"><a href="#一、CSS3" class="headerlink" title="一、CSS3"></a>一、CSS3</h1><h1 id="二、CSS3动画"><a href="#二、CSS3动画" class="headerlink" title="二、CSS3动画"></a>二、CSS3动画</h1><h1 id="三、Flex布局"><a href="#三、Flex布局" class="headerlink" title="三、Flex布局"></a>三、Flex布局</h1><p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool</a></p>
-<p>Webkit内核的浏览器例如(Safari和Chrome)，必须加上-webkit前缀。<br>设置为Flex布局后，子元素的float,clear,vertical-align将失效</p>
-<p>采用Flex布局的元素，成为Flex容器。它的所有子元素自动成为容器成员，称为Flex项目。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt=""><br>容器默认存在两根轴：水平的主轴(main axis)和垂直的交叉轴(cross axis)。主轴的开始位置叫做main start，结束位置叫main end。交叉轴的开始位置叫cross start,结束位置叫cross end。</p>
-<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size,占据的交叉轴空间叫做cross size。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/12/07.12/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/11/07.11/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/11/07.11/" itemprop="url">
-                  07.11
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-11T13:16:10+08:00">
-                2017-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="DOM与BOM"><a href="#DOM与BOM" class="headerlink" title="DOM与BOM"></a>DOM与BOM</h1><h4 id="一、获取节点的方法"><a href="#一、获取节点的方法" class="headerlink" title="一、获取节点的方法"></a>一、获取节点的方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">""</span>);                <span class="comment">// 返回指定ID的对象</span></div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">""</span>);          <span class="comment">// 返回带有指定类名的对象集合</span></div><div class="line"><span class="built_in">document</span>.getElementsByClassName(<span class="string">""</span>);        <span class="comment">// 返回带有指定标签名的对象集合</span></div><div class="line"></div><div class="line">element.getAttributeNode(<span class="string">""</span>);               <span class="comment">// 返回该节点的属性节点</span></div><div class="line">element.getAttribute(<span class="string">""</span>);                   <span class="comment">// 返回该属性节点的值</span></div><div class="line"></div><div class="line">element.firstChild;                         <span class="comment">// 获得该节点的第一个子节点</span></div><div class="line">element.lastChild;                          <span class="comment">// 获得该节点的最后一个字节点</span></div><div class="line">element.childNodes();                       <span class="comment">// 获得该节点的子节点数组(不仅仅是元素节点，还包括文本节点和属性节点等)</span></div><div class="line">element.children();                         <span class="comment">// 获得该节点的子节点数组(仅仅是元素节点)</span></div><div class="line">element.parentNodes();                      <span class="comment">// 获得该节点的父节点</span></div><div class="line">element.nextSibling;                        <span class="comment">// 获得该节点的下一个兄弟节点</span></div><div class="line">element.previousSibling;                    <span class="comment">// 获得该节点的上一个兄弟节点</span></div></pre></td></tr></table></figure>
-<h4 id="二、对节点的操作"><a href="#二、对节点的操作" class="headerlink" title="二、对节点的操作"></a>二、对节点的操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">element.appendChild();</div><div class="line">element.insertBefore(<span class="keyword">new</span>,old);</div><div class="line">element.removeChild();</div><div class="line">element.replaceChild(<span class="keyword">new</span>,old);</div><div class="line">element.cloneNode(boolen);</div></pre></td></tr></table></figure>
-<h4 id="三、innerHTML"><a href="#三、innerHTML" class="headerlink" title="三、innerHTML"></a>三、innerHTML</h4><p>innerHTML此属性可以很方便的获取或写入元素的文本信息，可以调用该属性直接获得元素的文本内容，也可以通过赋值字符串的方式将指定的HTML文本写入调用该属性的元素。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">element.innerHTML                               <span class="comment">//返回该元素的HTML内容</span></div><div class="line">element.innerHTML = &lt;p&gt;just a test&lt;/p&gt;          <span class="comment">//将该段代码写入element</span></div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/11/07.11/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/10/07.10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/10/07.10/" itemprop="url">
-                  07.10
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-10T21:28:03+08:00">
-                2017-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span></div><div class="line"><span class="built_in">cd</span> ..</div><div class="line">cat [filename]             <span class="comment"># 打开文件，查看里面的内容</span></div><div class="line">ls                         <span class="comment"># 当前目录内的文件</span></div><div class="line">ls -a                      <span class="comment"># 当前目录内的所有文件，包括隐藏文件</span></div><div class="line"><span class="built_in">pwd</span>                        <span class="comment"># 显示当前目录</span></div><div class="line">mkdir [filename]           <span class="comment"># make directory 创建文件夹</span></div><div class="line"><span class="built_in">echo</span> [String]              <span class="comment"># 打印字符串</span></div><div class="line">mv [src] [dest]            <span class="comment"># 可用于重命名文件或移动文件</span></div><div class="line">rm [src]                   <span class="comment"># 删除文件</span></div><div class="line">rm -r [src]                <span class="comment"># 删除文件夹（linux下的参数不是放在末尾的)</span></div><div class="line">cp [src] [dest]            <span class="comment"># 复制文件，从源到终点。可用于实现移动文件</span></div><div class="line">vim [path]                 <span class="comment"># 打开vim</span></div></pre></td></tr></table></figure>
-<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p><a href="http://blog.csdn.net/zhang1027963459/article/details/50478340" target="_blank" rel="external">http://blog.csdn.net/zhang1027963459/article/details/50478340</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> + 仓库地址      <span class="comment"># 首先从github克隆</span></div><div class="line">git add + 文件名          <span class="comment"># untracked files =&gt; new files</span></div><div class="line">git reset                <span class="comment"># 用于将已add的文件reset</span></div><div class="line">git commit -m <span class="string">""</span>         <span class="comment"># 双引号内为此次commit的注释,字符串</span></div><div class="line">git <span class="built_in">log</span></div><div class="line">git status</div><div class="line">git pull origin master</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
-<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo new [blogname]         # 创建新的博客</div><div class="line">hexo generate               # 生成静态资源，简写为hexo g</div><div class="line">hexo server                 # 本地发布，简写为hexo s</div><div class="line">hexo deploy                 # 部署到站点上，简写为hexo d</div><div class="line">http://www.jianshu.com/p/e99ed60390a8</div></pre></td></tr></table></figure>
-
-          
         
       
     </div>
@@ -1616,14 +1618,23 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
           
 
         </nav>
@@ -1671,7 +1682,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

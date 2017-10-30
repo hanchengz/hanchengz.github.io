@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="这两天看了一下Vue的教程，感觉确实挺方便的样子。 Vue实例每个Vue应用都是通过Vue函数创建一个新的Vue实例开始的。123456var vm = new Vue(&amp;#123;	el: &apos;#app&apos;,	data: &amp;#123;		msg: &apos;Hello Vue&apos;	&amp;#125;&amp;#125;) 数据与方法在创建一个新的Vue实例时，可以传入一个选项对象，来创建我们想要的行为。在创建时它向Vue的">
+<meta name="description" content="这两天看了一下Vue的教程，感觉确实挺方便的。 Vue实例每个Vue应用都是通过Vue函数创建一个新的Vue实例开始的。123456var vm = new Vue(&amp;#123;	el: &apos;#app&apos;,	data: &amp;#123;		msg: &apos;Hello Vue&apos;	&amp;#125;&amp;#125;) 数据与方法在创建一个新的Vue实例时，可以传入一个选项对象，来创建我们想要的行为。在创建时它向Vue的响应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue">
 <meta property="og:url" content="http://hanchengz.github.io/2017/10/08/Vue/index.html">
 <meta property="og:site_name" content="Hero">
-<meta property="og:description" content="这两天看了一下Vue的教程，感觉确实挺方便的样子。 Vue实例每个Vue应用都是通过Vue函数创建一个新的Vue实例开始的。123456var vm = new Vue(&amp;#123;	el: &apos;#app&apos;,	data: &amp;#123;		msg: &apos;Hello Vue&apos;	&amp;#125;&amp;#125;) 数据与方法在创建一个新的Vue实例时，可以传入一个选项对象，来创建我们想要的行为。在创建时它向Vue的">
-<meta property="og:updated_time" content="2017-10-09T12:36:50.930Z">
+<meta property="og:description" content="这两天看了一下Vue的教程，感觉确实挺方便的。 Vue实例每个Vue应用都是通过Vue函数创建一个新的Vue实例开始的。123456var vm = new Vue(&amp;#123;	el: &apos;#app&apos;,	data: &amp;#123;		msg: &apos;Hello Vue&apos;	&amp;#125;&amp;#125;) 数据与方法在创建一个新的Vue实例时，可以传入一个选项对象，来创建我们想要的行为。在创建时它向Vue的响应">
+<meta property="og:updated_time" content="2017-10-13T10:29:29.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue">
-<meta name="twitter:description" content="这两天看了一下Vue的教程，感觉确实挺方便的样子。 Vue实例每个Vue应用都是通过Vue函数创建一个新的Vue实例开始的。123456var vm = new Vue(&amp;#123;	el: &apos;#app&apos;,	data: &amp;#123;		msg: &apos;Hello Vue&apos;	&amp;#125;&amp;#125;) 数据与方法在创建一个新的Vue实例时，可以传入一个选项对象，来创建我们想要的行为。在创建时它向Vue的">
+<meta name="twitter:description" content="这两天看了一下Vue的教程，感觉确实挺方便的。 Vue实例每个Vue应用都是通过Vue函数创建一个新的Vue实例开始的。123456var vm = new Vue(&amp;#123;	el: &apos;#app&apos;,	data: &amp;#123;		msg: &apos;Hello Vue&apos;	&amp;#125;&amp;#125;) 数据与方法在创建一个新的Vue实例时，可以传入一个选项对象，来创建我们想要的行为。在创建时它向Vue的响应">
 
 
 
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -283,7 +283,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-08T10:29:54+08:00">
                 2017-10-08
@@ -321,7 +321,7 @@
       
 
       
-        <p>这两天看了一下Vue的教程，感觉确实挺方便的样子。</p>
+        <p>这两天看了一下Vue的教程，感觉确实挺方便的。</p>
 <h1 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h1><p>每个Vue应用都是通过Vue函数创建一个新的Vue实例开始的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">	<span class="attr">data</span>: &#123;</div><div class="line">		<span class="attr">msg</span>: <span class="string">'Hello Vue'</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h2 id="数据与方法"><a href="#数据与方法" class="headerlink" title="数据与方法"></a>数据与方法</h2><p>在创建一个新的Vue实例时，可以传入一个选项对象，来创建我们想要的行为。在创建时它向Vue的响应式系统中加入了data对象中的所有属性，当其中的属性的值发生变化时，视图也会实时的响应，更新为新的状态。<br>值得注意的是，当数据发生改变时，视图会重新渲染，但是仅有实例被创建时data中存在的属性是响应式的。这意味着如果我们在实例化一个Vue对象后再添加一个新的属性，那么这个新增的属性发生改变时不会触发视图的更新。<br>除了data属性，Vue实例还暴露了一些有用实例属性与方法。它们都有前缀$，以便与用户定义的属性区分开来。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">	<span class="attr">data</span>: &#123;</div><div class="line">		<span class="attr">msg</span>: <span class="string">'Hello Vue'</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.$data === data    <span class="comment">//true</span></div><div class="line">vm.$watch(<span class="string">'msg'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">newValue,oldValue</span>)</span>&#123;</div><div class="line">	<span class="comment">//将在msg的值发生变化后调用</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h2 id="实例生命周期"><a href="#实例生命周期" class="headerlink" title="实例生命周期"></a>实例生命周期</h2><p>每个Vue实例在创建之前都要经过一系列的初始化过程。例如需要设置数据监听，编译模版，挂载实例到dom，在数据变化时更新dom等。同时也会运行一些叫做<strong>生命周期钩子</strong>的函数。<br>例如created钩子可以用来在一个实例被创建后执行代码。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">	<span class="attr">data</span>: &#123;</div><div class="line">		<span class="attr">msg</span>: <span class="string">'Hello Vue'</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">created</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.msg);</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//Hello Vue</span></div></pre></td></tr></table></figure></p>
@@ -344,6 +344,10 @@
 <p>在这里href是参数，使用v-bind指令将该元素的href属性与表达式url的值绑定在一起。<br>v-on用于监听DOM事件，参数为事件名。</p>
 <h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>用于指出一个指令应该以特殊方式绑定。如   .prevent修饰符告诉v-on指令对于触发的事件调用event.preventDefault()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;form v-on:submit.prevent=<span class="string">"onSubmit"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <h3 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//v-bind缩写</span></div><div class="line">&lt;span v-bind:href=<span class="string">"url"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line">&lt;span :href=<span class="string">"url"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">//v-on缩写</span></div><div class="line">&lt;span v-on:click=<span class="string">"doSomething"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line">&lt;span @click=<span class="string">"doSomething"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h1 id="计算属性和观察者"><a href="#计算属性和观察者" class="headerlink" title="计算属性和观察者"></a>计算属性和观察者</h1><h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>模版内虽然可以使用单个JavaScript表达式，但是如果在模版内加入太多的逻辑会使模版变得难以维护。因此对于一些复杂的逻辑我们应当使用计算属性。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div id="example"&gt;</div><div class="line">	reverse message: &#123;&#123; msg.split('').reverse().join('') &#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">//这里的模版内逻辑过于复杂</div></pre></td></tr></table></figure></p>
+<p>使用计算属性<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>original message:&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>reverse message: &#123;&#123; reverseMsg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">el</span>: <span class="string">'#example'</span>,</div><div class="line">	<span class="attr">data</span>: &#123;</div><div class="line">		<span class="attr">msg</span>: <span class="string">'Hello Vue'</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">computed</span>: &#123;</div><div class="line">		<span class="attr">reverseMsg</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.msg.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>在这里我们声明了一个计算属性reverseMsg，我们提供的函数将用作vm.reverseMsg的getter函数。vm.reverseMsg依赖于sm.msg</p>
 
       
     </div>
@@ -389,6 +393,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/16/reduce/" rel="prev" title="reduce">
+                reduce <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -437,10 +445,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -460,14 +468,23 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
           
 
         </nav>
@@ -499,7 +516,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue实例"><span class="nav-number">1.</span> <span class="nav-text">Vue实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据与方法"><span class="nav-number">1.1.</span> <span class="nav-text">数据与方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例生命周期"><span class="nav-number">1.2.</span> <span class="nav-text">实例生命周期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模版语法"><span class="nav-number">2.</span> <span class="nav-text">模版语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插值"><span class="nav-number">2.1.</span> <span class="nav-text">插值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始HTML"><span class="nav-number">2.1.1.</span> <span class="nav-text">原始HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">2.1.2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用javascript表达式"><span class="nav-number">2.1.3.</span> <span class="nav-text">使用javascript表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令"><span class="nav-number">2.2.</span> <span class="nav-text">指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">2.2.1.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">2.2.2.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩写"><span class="nav-number">2.2.3.</span> <span class="nav-text">缩写</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue实例"><span class="nav-number">1.</span> <span class="nav-text">Vue实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据与方法"><span class="nav-number">1.1.</span> <span class="nav-text">数据与方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例生命周期"><span class="nav-number">1.2.</span> <span class="nav-text">实例生命周期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模版语法"><span class="nav-number">2.</span> <span class="nav-text">模版语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插值"><span class="nav-number">2.1.</span> <span class="nav-text">插值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始HTML"><span class="nav-number">2.1.1.</span> <span class="nav-text">原始HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">2.1.2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用javascript表达式"><span class="nav-number">2.1.3.</span> <span class="nav-text">使用javascript表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令"><span class="nav-number">2.2.</span> <span class="nav-text">指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">2.2.1.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">2.2.2.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩写"><span class="nav-number">2.2.3.</span> <span class="nav-text">缩写</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计算属性和观察者"><span class="nav-number">3.</span> <span class="nav-text">计算属性和观察者</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性"><span class="nav-number">3.1.</span> <span class="nav-text">计算属性</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -531,7 +548,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

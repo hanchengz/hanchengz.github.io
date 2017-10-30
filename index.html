@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -240,6 +240,391 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/10/30/关于闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/30/关于闭包/" itemprop="url">
+                  关于闭包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T19:05:56+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h1><p>要理解闭包，首先需要理解执行上下文，作用域。<br>先看看执行上下文是啥。</p>
+<blockquote>
+<p>所谓自由变量就是指在A作用域内使用的变量，却没有在A作用域内声明（即在其他作用域内声明的），对A作用域来说，x就是一个自由变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(x);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(a);		<span class="comment">//Uncaught ReferenceError: a is not defined</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a);		<span class="comment">//undefined</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div></pre></td></tr></table></figure>
+<p>第一句代码报错，a未定义。而第二句并没有报错，这是因为在一段代码执行之前，浏览器实际已经做了一些“准备工作”，这就包括了对变量的声明，而不是赋值。变量是在代码运行的过程中进行赋值的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>);		<span class="comment">//Window</span></div></pre></td></tr></table></figure>
+<p>与上面的变量声明不同，浏览器的“准备工作”会直接给this赋值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(f1);		<span class="comment">//function f1()&#123;&#125;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;&#125;			<span class="comment">//函数声明</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(f1);		<span class="comment">//undefined</span></div><div class="line">f1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;		<span class="comment">//函数表达式</span></div></pre></td></tr></table></figure>
+<p>在浏览器的“准备工作中”，对待函数表达式就像变量声明一样，“var a = 10”，仅仅只是声明。而对待函数声明则是把函数整个赋值了。</p>
+<p>总结一下浏览器的“准备工作”：</p>
+<ul>
+<li>变量，函数表达式的声明—变量声明，默认赋值为undefined</li>
+<li>this，函数声明的赋值</li>
+</ul>
+<p>这些所谓的“准备工作”其实就是<strong>“执行上下文”或“执行上下文环境”</strong><br>javascript在执行一个代码段之前都会做这些准备工作来生成一个执行上下文，<strong>这个代码段实际分为三种，全局代码，函数，eval代码</strong></p>
+<p>在函数中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">arguments</span>);		<span class="comment">//[10]</span></div><div class="line">	<span class="built_in">console</span>.log(x);				<span class="comment">//10</span></div><div class="line">&#125;</div><div class="line">fn(<span class="number">10</span>);</div></pre></td></tr></table></figure></p>
+<p>上述代码表明，在函数体的语句执行之前，arguments变量和函数的参数都已经被赋值，可以看出，<strong>函数每调用一次，都会产生一个新的执行上下文环境</strong>，因为不同的调用就有可能有不同的参数。</p>
+<p>函数在定义的时候（而不是调用的时候），就已经确定了函数内部自由变量的作用域。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(a);		<span class="comment">//a是自由变量</span></div><div class="line">&#125;				<span class="comment">//函数定义时，就已经确定了a要取值的作用域</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">f</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line">	f();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//10</span></div></pre></td></tr></table></figure></p>
+<h1 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h1><p>执行全局代码时，会产生一个执行上下文环境，每次调用函数又会产生执行上下文环境。当函数调用完成时，这个执行上下文环境及其中的数据都会被销毁，再重新回到全局上下文环境。处于活动状态的执行上下文环境只有一个。</p>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>javascript除了全局作用域之外，只有函数能够创建作用域。<br><strong>作用域在函数定义的时候就已经确定了，只是尚未激活。而不是在函数调用时才确定</strong></p>
+<p>作用域只是一个“地盘”，一个抽象的概念，里面没有变量。<strong>要通过作用域对应的执行上下文环境来获取变量的值</strong>，同一个作用域下，不同的调用<br>会产生不同的执行上下文环境，继而产生不同的变量的值。所以，<strong>作用域中变量的值是在执行过程中确定的，而</strong></p>
+<p><img src="http://oymz85932.bkt.clouddn.com/aaa.png" alt="aaa"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/10/21/vue-component/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/21/vue-component/" itemprop="url">
+                  vue.component
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-21T22:36:10+08:00">
+                2017-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这两天在看Vue的组件。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/10/16/reduce/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/16/reduce/" itemprop="url">
+                  reduce
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-16T23:43:29+08:00">
+                2017-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</div><div class="line">arr = arr.reduce(<span class="function">(<span class="params">acc,cur</span>) =&gt;</span> &#123;</div><div class="line">		<span class="keyword">if</span>(!acc.includes(cur))&#123;</div><div class="line">			acc.push(cur);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> acc;</div><div class="line">	&#125;);</div><div class="line"><span class="built_in">console</span>.log(arr);</div><div class="line"><span class="comment">//[1,3,2,4,5,6]</span></div></pre></td></tr></table></figure>
+<h1 id="includes"><a href="#includes" class="headerlink" title="includes"></a>includes</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -287,7 +672,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-08T10:29:54+08:00">
                 2017-10-08
@@ -327,7 +712,7 @@
       
         
           
-            <p>这两天看了一下Vue的教程，感觉确实挺方便的样子。</p>
+            <p>这两天看了一下Vue的教程，感觉确实挺方便的。</p>
 <h1 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h1><p>每个Vue应用都是通过Vue函数创建一个新的Vue实例开始的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">	<span class="attr">data</span>: &#123;</div><div class="line">		<span class="attr">msg</span>: <span class="string">'Hello Vue'</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h2 id="数据与方法"><a href="#数据与方法" class="headerlink" title="数据与方法"></a>数据与方法</h2><p>在创建一个新的Vue实例时，可以传入一个选项对象，来创建我们想要的行为。在创建时它向Vue的响应式系统中加入了data对象中的所有属性，当其中的属性的值发生变化时，视图也会实时的响应，更新为新的状态。<br>值得注意的是，当数据发生改变时，视图会重新渲染，但是仅有实例被创建时data中存在的属性是响应式的。这意味着如果我们在实例化一个Vue对象后再添加一个新的属性，那么这个新增的属性发生改变时不会触发视图的更新。<br>除了data属性，Vue实例还暴露了一些有用实例属性与方法。它们都有前缀$，以便与用户定义的属性区分开来。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">	<span class="attr">data</span>: &#123;</div><div class="line">		<span class="attr">msg</span>: <span class="string">'Hello Vue'</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.$data === data    <span class="comment">//true</span></div><div class="line">vm.$watch(<span class="string">'msg'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">newValue,oldValue</span>)</span>&#123;</div><div class="line">	<span class="comment">//将在msg的值发生变化后调用</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h2 id="实例生命周期"><a href="#实例生命周期" class="headerlink" title="实例生命周期"></a>实例生命周期</h2><p>每个Vue实例在创建之前都要经过一系列的初始化过程。例如需要设置数据监听，编译模版，挂载实例到dom，在数据变化时更新dom等。同时也会运行一些叫做<strong>生命周期钩子</strong>的函数。<br>例如created钩子可以用来在一个实例被创建后执行代码。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">	<span class="attr">data</span>: &#123;</div><div class="line">		<span class="attr">msg</span>: <span class="string">'Hello Vue'</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">created</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.msg);</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//Hello Vue</span></div></pre></td></tr></table></figure></p>
@@ -350,6 +735,10 @@
 <p>在这里href是参数，使用v-bind指令将该元素的href属性与表达式url的值绑定在一起。<br>v-on用于监听DOM事件，参数为事件名。</p>
 <h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>用于指出一个指令应该以特殊方式绑定。如   .prevent修饰符告诉v-on指令对于触发的事件调用event.preventDefault()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;form v-on:submit.prevent=<span class="string">"onSubmit"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <h3 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//v-bind缩写</span></div><div class="line">&lt;span v-bind:href=<span class="string">"url"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line">&lt;span :href=<span class="string">"url"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">//v-on缩写</span></div><div class="line">&lt;span v-on:click=<span class="string">"doSomething"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line">&lt;span @click=<span class="string">"doSomething"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h1 id="计算属性和观察者"><a href="#计算属性和观察者" class="headerlink" title="计算属性和观察者"></a>计算属性和观察者</h1><h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>模版内虽然可以使用单个JavaScript表达式，但是如果在模版内加入太多的逻辑会使模版变得难以维护。因此对于一些复杂的逻辑我们应当使用计算属性。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div id="example"&gt;</div><div class="line">	reverse message: &#123;&#123; msg.split('').reverse().join('') &#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">//这里的模版内逻辑过于复杂</div></pre></td></tr></table></figure></p>
+<p>使用计算属性<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>original message:&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>reverse message: &#123;&#123; reverseMsg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">el</span>: <span class="string">'#example'</span>,</div><div class="line">	<span class="attr">data</span>: &#123;</div><div class="line">		<span class="attr">msg</span>: <span class="string">'Hello Vue'</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">computed</span>: &#123;</div><div class="line">		<span class="attr">reverseMsg</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.msg.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>在这里我们声明了一个计算属性reverseMsg，我们提供的函数将用作vm.reverseMsg的getter函数。vm.reverseMsg依赖于sm.msg</p>
 
           
         
@@ -430,7 +819,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T19:09:51+08:00">
                 2017-09-22
@@ -577,7 +966,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T11:00:19+08:00">
                 2017-08-18
@@ -699,7 +1088,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T09:53:08+08:00">
                 2017-08-15
@@ -739,9 +1128,10 @@
       
         
           
-            <h1 id="关于this的一些知识"><a href="#关于this的一些知识" class="headerlink" title="关于this的一些知识"></a>关于this的一些知识</h1><p>参考文章：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this</a></p>
+            <h1 id="关于this的一些知识"><a href="#关于this的一些知识" class="headerlink" title="关于this的一些知识"></a>关于this的一些知识</h1><p>总是说this的取值取决于函数的调用方式，其实说到底就是执行上下文的问题。因为每次调用一个函数时，都会产生一个新的执行上下文，而在创建执行上下文时，会对this进行赋值。</p>
+<p>参考文章：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this</a></p>
 <p>在绝大多数的情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用，ES2015引入了支持this词法解析的箭头函数（它在闭合的执行上下文内设置this的值）。</p>
-<h2 id="全局上下文"><a href="#全局上下文" class="headerlink" title="全局上下文"></a>全局上下文</h2><h2 id="函数上下文"><a href="#函数上下文" class="headerlink" title="函数上下文"></a>函数上下文</h2><h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><p>参考文章：<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000</a></p>
+<h2 id="全局上下文"><a href="#全局上下文" class="headerlink" title="全局上下文"></a>全局上下文</h2><h2 id="函数上下文"><a href="#函数上下文" class="headerlink" title="函数上下文"></a>函数上下文</h2><h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><p>参考文章：<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000</a></p>
 <p>箭头函数相当于匿名函数，并且简化了函数定义。箭头函数有两种格式，只含一个表达式的，可以省略{}和return。还有一种可以包含多条语句，这时的{}和return就不能省略了</p>
 <h2 id="关于箭头函数的this"><a href="#关于箭头函数的this" class="headerlink" title="关于箭头函数的this"></a>关于箭头函数的this</h2><p>箭头函数看上去时匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是<strong>词法作用域</strong>，由上下文确定。</p>
 <p>由于JavaScript函数对this绑定的错误处理，下面的例子无法得到预期结果</p>
@@ -829,7 +1219,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T18:58:16+08:00">
                 2017-08-10
@@ -873,7 +1263,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/10/暑假总结/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -955,7 +1345,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T17:03:33+08:00">
                 2017-07-27
@@ -1078,7 +1468,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-26T11:09:49+08:00">
                 2017-07-26
@@ -1120,386 +1510,6 @@
           
             <h1 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a>background-clip</h1><p>实现字体的颜色渐变<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-background-clip</span>: <span class="selector-tag">text</span>;</div></pre></td></tr></table></figure></p>
 <h1 id="mask-image"><a href="#mask-image" class="headerlink" title="mask-image"></a>mask-image</h1><p>这个实现的效果与上面的有点类似，但是最大的不同是，这个操作的是图片。<br>透明的地方会盖住背景，而不透明的地方则会显现出背景的颜色，可以用这个属性来实现logo的颜色渐变。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-mask-image</span>: <span class="selector-tag">url</span>();</div><div class="line"><span class="selector-tag">background-repeat</span>: <span class="selector-tag">no-repeat</span>;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/25/07.25/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/25/07.25/" itemprop="url">
-                  07.25
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-25T09:53:01+08:00">
-                2017-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="background-size"><a href="#background-size" class="headerlink" title="background-size"></a>background-size</h1><p>参考文章：<a href="https://www.w3cplus.com/content/css3-background-size" target="_blank" rel="external">https://www.w3cplus.com/content/css3-background-size</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-size: auto || &lt;length&gt; || &lt;percentage&gt; || cover || contain</div></pre></td></tr></table></figure></p>
-<h3 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h3><p>此值为默认值，保持背景图片的原始高度和宽度。</p>
-<h3 id="cover"><a href="#cover" class="headerlink" title="cover"></a>cover</h3><p>此值是将图片放大，以铺满整个容器，这个主要运用在当图片小于容器时，由无法使用background-repeat来实现，此时就可以使用cover，将背景图片放大到适合容器大小，但这种方法会使图片失真。只会将宽度或高度中的一项放大至撑满容器，如水平方向撑满容器完整显示，则垂直方向不一定完整显示。</p>
-<h3 id="contain"><a href="#contain" class="headerlink" title="contain"></a>contain</h3><p>此值刚好与cover相反，主要用于将图片缩小。这种方法也会导致图片失真。可能出现水平方向撑满容器，但高度方向不撑满容器。</p>
-<h1 id="linear-gradient"><a href="#linear-gradient" class="headerlink" title="linear-gradient"></a>linear-gradient</h1><p>CSS线性渐变不是一个CSS<code>&lt;color&gt;</code>，而是一个没有内在尺寸的<strong> 图像 </strong>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">left</span>,<span class="selector-id">#000</span>,<span class="selector-id">#FFF</span>);</div><div class="line">&lt;!<span class="selector-tag">--</span> 从左侧开始向右渐变，从黑变白 <span class="selector-tag">--</span>&gt;</div><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">bottom</span>,<span class="selector-id">#000</span>,<span class="selector-id">#FFF</span>);</div><div class="line">&lt;!<span class="selector-tag">--</span> 从底部开始向上渐变，从黑变白 <span class="selector-tag">--</span>&gt;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">-webkit-linear-gradient</span>(0,<span class="selector-id">#000</span>,<span class="selector-id">#FFF</span>);</div><div class="line">&lt;!<span class="selector-tag">--</span> 因为线性渐变，所以实际上是生成了一张图像，而<span class="selector-tag">background</span>是很多属性的集合 <span class="selector-tag">--</span>&gt;</div><div class="line">&lt;!<span class="selector-tag">--</span> 所以建议在使用渐变时写成<span class="selector-tag">background-image</span> <span class="selector-tag">--</span>&gt;</div><div class="line">&lt;!<span class="selector-tag">--</span> 当指定角度时，它是由水平线与渐变线产生的角度，逆时针方向 <span class="selector-tag">--</span>&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h1><p>参考文章：<a href="http://www.cnblogs.com/cnblogsfans/p/5095443.html" target="_blank" rel="external">http://www.cnblogs.com/cnblogsfans/p/5095443.html</a></p>
-<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><h3 id="task"><a href="#task" class="headerlink" title="task"></a>task</h3><h3 id="dest"><a href="#dest" class="headerlink" title="dest"></a>dest</h3><h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/24/07.24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/24/07.24/" itemprop="url">
-                  07.24
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T11:08:42+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><h3 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a>XMLHttpRequest对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
-<p>在使用xhr对象时，要调用的第一个方法是open()，它接受三个参数，要发送的请求的类型（get，post等）、请求的URL和表示是否异步发送请求的布尔值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">"get"</span>,<span class="string">"example.php"</span>,<span class="literal">false</span>);</div><div class="line"><span class="comment">// 这行代码会启动一个针对example.php的GET请求。</span></div><div class="line"><span class="comment">// URL相对于执行代码的当前页面（可以是也对路径）</span></div><div class="line"><span class="comment">// 调用open()方法并不会真正发送请求，而只是启动一个请求以备发送。</span></div></pre></td></tr></table></figure></p>
-<p><strong> 只能向同一个域中使用相同端口和协议的URL发送请求，如果URL与启动请求的页面有任何差别，都会引发安全错误。 </strong><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/24/07.24/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/21/07.21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/21/07.21/" itemprop="url">
-                  07.21
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-21T16:11:52+08:00">
-                2017-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h1><h3 id="ctx-save"><a href="#ctx-save" class="headerlink" title="ctx.save()"></a>ctx.save()</h3><p>该方法是Canvas 2D API通过将当前状态放入栈中，保存canvas全部状态的方法</p>
-<h3 id="ctx-restore"><a href="#ctx-restore" class="headerlink" title="ctx.restore();"></a>ctx.restore();</h3><p>该方法是Canvas 2D API通过在绘图状态栈中弹出顶端的状态，将canvas恢复到最近的保存状态的方法，。如果没有保存状态，此方法不做任何改变。</p>
-<blockquote>
-<p>在使用上述方法时，要注意的是每当restore之后，栈中保存的状态就被弹出。若save之前再restore，则栈中无保存状态，不弹出。</p>
-</blockquote>
-<h3 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h3><p>该方法会改变canvas中原点的位置，主要用于rotate。<br>注意在rotate后将坐标原点更改回初始位置。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.translate(x,y);</div></pre></td></tr></table></figure></p>
-<h3 id="rotate"><a href="#rotate" class="headerlink" title="rotate"></a>rotate</h3><p>该方法在变换矩阵中增加旋转的方法。角度变量表示一个顺时针旋转角度并且用弧度表示。<br>旋转中心点一直是canvas的起始点。如果想改变中心点，我们可以通过translate()方法移动canvas。</p>
 
           
         
@@ -1583,14 +1593,23 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
           
 
         </nav>
@@ -1638,7 +1657,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
