@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -240,6 +240,141 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/11/14/事件委托与dataset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/14/事件委托与dataset/" itemprop="url">
+                  事件委托与dataset
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T19:57:33+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Attribute与Property的区别"><a href="#Attribute与Property的区别" class="headerlink" title="Attribute与Property的区别"></a>Attribute与Property的区别</h1><p>简单的来说，Attribute就是DOM节点上自带的属性，例如html中的id，class，title等。（包括自定义属性）<br><img src="http://oymz85932.bkt.clouddn.com/attribute.png" alt="image"><br>Property就是这个DOM节点对象上附加的内容，比如说childNodes、firstChild。<br><img src="http://oymz85932.bkt.clouddn.com/property.png" alt="image"></p>
+<h1 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a>dataset</h1><h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><ol>
+<li><p>html中写入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span> <span class="attr">data-id</span>=<span class="string">"1"</span> <span class="attr">data-command</span>=<span class="string">"stop"</span> <span class="attr">data-name</span>=<span class="string">"button"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>用js设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">"test"</span>);</div><div class="line">test.dataset.id = <span class="string">"2"</span>;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">"test"</span>);</div><div class="line"><span class="keyword">var</span> id = ele.dataset.id;</div><div class="line"><span class="keyword">var</span> command = ele.dataset.command;</div><div class="line"><span class="built_in">console</span>.log(id,command);</div><div class="line"><span class="comment">// 1,stop</span></div></pre></td></tr></table></figure>
+<p>需要注意的是命名驼峰化<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span> <span class="attr">data-meal-time</span>=<span class="string">"night"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这个时候如果需要获取相应的值，就需要这样<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">"test"</span>);</div><div class="line"><span class="keyword">var</span> mealTime = test.dataset.mealTime;</div></pre></td></tr></table></figure></p>
+<h1 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h1><p>本来是没有接触过这个东西的，这两天在做IFE的时候，经红莲提示才知道有这么个东西。<br>先说下我遇到的问题吧。<br>我要处理的就是，对每个button都进行处理，当按钮触发点击事件时，执行相应的代码。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- html --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"craft1"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-id</span>=<span class="string">"1"</span> <span class="attr">data-command</span>=<span class="string">"stop"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-id</span>=<span class="string">"1"</span> <span class="attr">data-command</span>=<span class="string">"fly"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-id</span>=<span class="string">"1"</span> <span class="attr">data-command</span>=<span class="string">"destroy"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"craft2"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-id</span>=<span class="string">"2"</span> <span class="attr">data-command</span>=<span class="string">"stop"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-id</span>=<span class="string">"2"</span> <span class="attr">data-command</span>=<span class="string">"fly"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-id</span>=<span class="string">"2"</span> <span class="attr">data-command</span>=<span class="string">"destroy"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 我使用了两种方法来处理</span></div><div class="line"></div><div class="line"><span class="comment">// javascript</span></div><div class="line"><span class="keyword">var</span> buttons = $(<span class="string">'div button'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 将jQuery对象转换为原生的DOM节点的数组</span></div><div class="line">buttons = <span class="built_in">Array</span>.form(buttons);</div><div class="line">buttons.forEach(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">	e.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// jQuery</span></div><div class="line">buttons = $(<span class="string">'div button'</span>);</div><div class="line">buttons.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 由于当时这段代码是写在另一个函数中的，造成了重复的绑定。</span></div><div class="line"><span class="comment">// 然后就去找了下addEventListener和onclick的区别。以及jQuery中click的实现方法。</span></div></pre></td></tr></table></figure>
+<p>简单来说 onclick 是会重写事件的绑定，不会造成重复绑定，而addEventListener则是将监听器注册到相应的DOM节点上，同时还有一个removeEventListener来解除绑定。<br>jQuery中click是利用addEventListener实现的。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -287,7 +422,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T19:05:56+08:00">
                 2017-10-30
@@ -440,7 +575,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-21T22:36:10+08:00">
                 2017-10-21
@@ -561,7 +696,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-16T23:43:29+08:00">
                 2017-10-16
@@ -686,7 +821,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-08T10:29:54+08:00">
                 2017-10-08
@@ -833,7 +968,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T19:09:51+08:00">
                 2017-09-22
@@ -980,7 +1115,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T11:00:19+08:00">
                 2017-08-18
@@ -1102,7 +1237,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T09:53:08+08:00">
                 2017-08-15
@@ -1233,7 +1368,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T18:58:16+08:00">
                 2017-08-10
@@ -1277,7 +1412,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/10/暑假总结/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1359,7 +1494,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T17:03:33+08:00">
                 2017-07-27
@@ -1402,128 +1537,6 @@
             <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h1 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h1><h3 id="none"><a href="#none" class="headerlink" title="none"></a>none</h3><p>表示不设置结束之后的状态，默认情况下回到初始状态。</p>
 <h3 id="forwards"><a href="#forwards" class="headerlink" title="forwards"></a>forwards</h3><p>表示将动画元素设置为整个动画结束时的状态。</p>
 <h3 id="backwards"><a href="#backwards" class="headerlink" title="backwards"></a>backwards</h3><p>明确设置动画结束之后回到初始状态。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/26/07.26/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/26/07.26/" itemprop="url">
-                  07.26
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-26T11:09:49+08:00">
-                2017-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a>background-clip</h1><p>实现字体的颜色渐变<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-background-clip</span>: <span class="selector-tag">text</span>;</div></pre></td></tr></table></figure></p>
-<h1 id="mask-image"><a href="#mask-image" class="headerlink" title="mask-image"></a>mask-image</h1><p>这个实现的效果与上面的有点类似，但是最大的不同是，这个操作的是图片。<br>透明的地方会盖住背景，而不透明的地方则会显现出背景的颜色，可以用这个属性来实现logo的颜色渐变。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-mask-image</span>: <span class="selector-tag">url</span>();</div><div class="line"><span class="selector-tag">background-repeat</span>: <span class="selector-tag">no-repeat</span>;</div></pre></td></tr></table></figure></p>
 
           
         
@@ -1607,8 +1620,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1621,7 +1634,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1671,7 +1684,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
