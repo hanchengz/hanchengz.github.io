@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="Vueanimation-fill-modenone表示不设置结束之后的状态，默认情况下回到初始状态。 forwards表示将动画元素设置为整个动画结束时的状态。 backwards明确设置动画结束之后回到初始状态。">
+<meta name="description" content="这两天看了下Vue的过渡和动画，感觉最主要的就是掌握那几个class。 Vue提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加entering/leaving过渡：  条件渲染（使用v-if） 条件展示（使用v-show） 动态组件 组件根节点 要注意的就是transition标签里只能有一个子元素，不能包含多个子元素。    过渡的类名 v-enter  v-en">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07.27">
-<meta property="og:url" content="http://hanchengz.github.io/2017/07/27/07.27/index.html">
+<meta property="og:title" content="Vue 动画">
+<meta property="og:url" content="http://hanchengz.github.io/2017/11/21/Vue-动画/index.html">
 <meta property="og:site_name" content="Hero">
-<meta property="og:description" content="Vueanimation-fill-modenone表示不设置结束之后的状态，默认情况下回到初始状态。 forwards表示将动画元素设置为整个动画结束时的状态。 backwards明确设置动画结束之后回到初始状态。">
-<meta property="og:updated_time" content="2017-07-28T01:11:50.000Z">
+<meta property="og:description" content="这两天看了下Vue的过渡和动画，感觉最主要的就是掌握那几个class。 Vue提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加entering/leaving过渡：  条件渲染（使用v-if） 条件展示（使用v-show） 动态组件 组件根节点 要注意的就是transition标签里只能有一个子元素，不能包含多个子元素。    过渡的类名 v-enter  v-en">
+<meta property="og:updated_time" content="2017-11-21T16:15:29.383Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="07.27">
-<meta name="twitter:description" content="Vueanimation-fill-modenone表示不设置结束之后的状态，默认情况下回到初始状态。 forwards表示将动画元素设置为整个动画结束时的状态。 backwards明确设置动画结束之后回到初始状态。">
+<meta name="twitter:title" content="Vue 动画">
+<meta name="twitter:description" content="这两天看了下Vue的过渡和动画，感觉最主要的就是掌握那几个class。 Vue提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加entering/leaving过渡：  条件渲染（使用v-if） 条件展示（使用v-show） 动态组件 组件根节点 要注意的就是transition标签里只能有一个子元素，不能包含多个子元素。    过渡的类名 v-enter  v-en">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://hanchengz.github.io/2017/07/27/07.27/"/>
+  <link rel="canonical" href="http://hanchengz.github.io/2017/11/21/Vue-动画/"/>
 
 
 
 
 
-  <title> 07.27 | Hero </title>
+  <title> Vue 动画 | Hero </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -249,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/27/07.27/">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/11/21/Vue-动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hancheng Zhou">
@@ -270,7 +270,7 @@
             
             
               
-                07.27
+                Vue 动画
               
             
           </h1>
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T17:03:33+08:00">
-                2017-07-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-21T23:02:02+08:00">
+                2017-11-21
               </time>
             
 
@@ -321,9 +321,31 @@
       
 
       
-        <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h1 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h1><h3 id="none"><a href="#none" class="headerlink" title="none"></a>none</h3><p>表示不设置结束之后的状态，默认情况下回到初始状态。</p>
-<h3 id="forwards"><a href="#forwards" class="headerlink" title="forwards"></a>forwards</h3><p>表示将动画元素设置为整个动画结束时的状态。</p>
-<h3 id="backwards"><a href="#backwards" class="headerlink" title="backwards"></a>backwards</h3><p>明确设置动画结束之后回到初始状态。</p>
+        <p>这两天看了下Vue的过渡和动画，感觉最主要的就是掌握那几个class。</p>
+<p>Vue提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加entering/leaving过渡：</p>
+<ol>
+<li>条件渲染（使用v-if）</li>
+<li>条件展示（使用v-show）</li>
+<li>动态组件</li>
+<li>组件根节点<blockquote>
+<p>要注意的就是transition标签里只能有一个子元素，不能包含多个子元素。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="过渡的类名"><a href="#过渡的类名" class="headerlink" title="过渡的类名"></a>过渡的类名</h2><ul>
+<li><p>v-enter</p>
+</li>
+<li><p>v-enter-active</p>
+</li>
+<li><p>v-enter-to</p>
+</li>
+<li><p>v-leave</p>
+</li>
+<li><p>v-leave-active</p>
+</li>
+<li><p>v-leave-to</p>
+</li>
+</ul>
 
       
     </div>
@@ -360,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/07.26/" rel="next" title="07.26">
-                <i class="fa fa-chevron-left"></i> 07.26
+              <a href="/2017/11/14/事件委托与dataset/" rel="next" title="事件委托与dataset">
+                <i class="fa fa-chevron-left"></i> 事件委托与dataset
               </a>
             
           </div>
@@ -369,10 +391,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/10/暑假总结/" rel="prev" title="暑假总结">
-                暑假总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -492,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue"><span class="nav-number">1.</span> <span class="nav-text">Vue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#animation-fill-mode"><span class="nav-number">2.</span> <span class="nav-text">animation-fill-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#none"><span class="nav-number">2.0.1.</span> <span class="nav-text">none</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forwards"><span class="nav-number">2.0.2.</span> <span class="nav-text">forwards</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backwards"><span class="nav-number">2.0.3.</span> <span class="nav-text">backwards</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡的类名"><span class="nav-number">1.</span> <span class="nav-text">过渡的类名</span></a></li></ol></div>
             
 
           </div>
