@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -240,6 +240,136 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/12/03/jsonp跨域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hancheng Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/03/jsonp跨域/" itemprop="url">
+                  jsonp跨域
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T19:53:08+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近没什么事做，就想着跟莲莲一样，也写一个播放器，然后就遇到了所谓的跨域。<br>要明确的一点就是，解决跨域问题需要前端和后台的共同努力。</p>
+<h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><p>先介绍一下何为同源策略。浏览器对其的定义是：<strong>在 http 请求的 url 里，如果协议，端口（如果指定了一个）和域名对于两个页面是相同的，则两个页面具有相同的源</strong><br>浏览器有许多策略来对待不同源的http请求，这些策略制约了ajax或img标签的行为。</p>
+<p>同源策略规定：XHR对象只能访问与包含它的页面位于同一域中的资源，有利于预防一些恶意行为。</p>
+<h1 id="jsonp-JSON-with-Padding"><a href="#jsonp-JSON-with-Padding" class="headerlink" title="jsonp(JSON with Padding)"></a>jsonp(JSON with Padding)</h1><p>所谓jsonp其实原理很简单。就是利用了script标签的src属性可以跨域请求脚本和浏览器会执行scipt标签内的代码。</p>
+<p>所以 JSONP 的理念就是，我和服务端约定好一个函数名，当我请求文件的时候，服务端返回一段JavaScript。这段JavaScript调用了我们约定好的函数，并且将数据当做参数传入。非常巧合的一点（其实并不是），JSON的数据格式和JavaScript语言里对象的格式正好相同。所以在我们约定的函数里面可以直接使用这个对象。</p>
+<p>其实我们要做的只不过是生成一个回调函数名，将参数拼接成字符串。</p>
+<p>html:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(data)</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"www.xxx.com/xxx.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 假设后台接口为xxx.com --&gt;</span></div></pre></td></tr></table></figure></p>
+<p>xxx.js文件内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">getData(&#123;</div><div class="line">	<span class="attr">dasda</span>: <span class="string">'dada'</span>,</div><div class="line">	<span class="attr">czx</span>: <span class="string">'dasda'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>数据会被当作参数传入我们所设置的回调函数。</p>
+<p>具体实现，参照着红莲的思路去实现的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> http = &#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">// 拼接查询字符串</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">queryString</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.keys(o).map(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">		<span class="keyword">var</span> val = o[e];</div><div class="line">		<span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;e&#125;</span>=<span class="subst">$&#123;val&#125;</span>`</span>;</div><div class="line">	&#125;).join(<span class="string">'&amp;'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> couter = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> callBack = <span class="string">'musicPlayer'</span></div><div class="line"></div><div class="line"><span class="comment">// jsonp</span></div><div class="line">http.jsonp = <span class="function"><span class="keyword">function</span>(<span class="params">url,data</span>)</span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> funcName = callBack + ++couter;</div><div class="line"></div><div class="line"></div><div class="line">	data.callback = funcName;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> fullUrl = url + <span class="string">'?'</span> + queryString(data);</div><div class="line">	<span class="built_in">console</span>.log(fullUrl);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res,rej</span>) =&gt;</span> &#123;</div><div class="line">		<span class="built_in">window</span>[funcName] = res;</div><div class="line">		<span class="keyword">var</span> body = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>];</div><div class="line">        <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">        script.setAttribute(<span class="string">'src'</span>, fullUrl);</div><div class="line">        body.appendChild(script);</div><div class="line">	&#125;)</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> http</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -287,7 +417,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-21T23:02:02+08:00">
                 2017-11-21
@@ -432,7 +562,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T19:57:33+08:00">
                 2017-11-14
@@ -570,7 +700,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T19:05:56+08:00">
                 2017-10-30
@@ -723,7 +853,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-21T22:36:10+08:00">
                 2017-10-21
@@ -844,7 +974,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-16T23:43:29+08:00">
                 2017-10-16
@@ -969,7 +1099,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-08T10:29:54+08:00">
                 2017-10-08
@@ -1116,7 +1246,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T19:09:51+08:00">
                 2017-09-22
@@ -1263,7 +1393,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T11:00:19+08:00">
                 2017-08-18
@@ -1385,7 +1515,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T09:53:08+08:00">
                 2017-08-15
@@ -1470,132 +1600,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/08/10/暑假总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hancheng Zhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/10/暑假总结/" itemprop="url">
-                  暑假总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T18:58:16+08:00">
-                2017-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一不小心为期一个月的培训就过去了，真的很幸运遇到了你们。<br>话说这个月每天都过着朝九晚九的生活，但是真的过的很开心很充实，平时上课打码，累了就一起开个黑什么的。还有师兄们送来的零食，第一个周末我们一起在理学馆吃着零食看电影是真的很舒服哈哈，还一不小心上了momo的跑车，车速之快让人猝不及防，女主的智商我是很服气的，学历高果然不一样。</p>
-<p>有一天中午回宿舍睡觉摔碎了手机，然后去吃饭的那天问了一下感觉太便宜了，突然就决定修手机，让你们等了很久真的觉得很不好意思。记得当时花菜还有点不舒服，但还是等到修完手机才回去休息，心疼花菜两秒。那天晚上找遍南亭的便利店也没有找到uno，厚着脸皮跑到隔壁奶茶店去借了一副，然后给不爱我的荣耀加了好多牌，红莲总是抓着一手牌却一下丢完，浩楠老是因为没叫uno被加牌。重点是，居然发明了复活赛这种神奇的东西。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/10/暑假总结/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1645,8 +1649,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1659,7 +1663,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1709,7 +1713,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
