@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="background-clip实现字体的颜色渐变1-webkit-background-clip: text; mask-image这个实现的效果与上面的有点类似，但是最大的不同是，这个操作的是图片。透明的地方会盖住背景，而不透明的地方则会显现出背景的颜色，可以用这个属性来实现logo的颜色渐变。12-webkit-mask-image: url();background-repeat: no-r">
+<meta name="description" content="想想也有好久没写博客了，考试月什么的。加上我也有点懒，现在手头上没事情了，也是该好好沉淀一下了。刚刚随手翻到了阮一峰的一篇文章，讲的js的运行机制。首先要明确的一点就是JavaScript是单线程的。单线程就意味着，所有的任务都需要排队，前一个任务执行完毕才会执行后一个任务。如果一个任务的执行时间很长，那么后一个任务就不得不等着，直到前面的任务执行完毕。 任务队列在浏览器的环境下，我们经常需要向服">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07.26">
-<meta property="og:url" content="http://hanchengz.github.io/2017/07/26/07.26/index.html">
+<meta property="og:title" content="单线程的JavaScript">
+<meta property="og:url" content="http://hanchengz.github.io/2018/01/27/单线程的JavaScript/index.html">
 <meta property="og:site_name" content="Hero">
-<meta property="og:description" content="background-clip实现字体的颜色渐变1-webkit-background-clip: text; mask-image这个实现的效果与上面的有点类似，但是最大的不同是，这个操作的是图片。透明的地方会盖住背景，而不透明的地方则会显现出背景的颜色，可以用这个属性来实现logo的颜色渐变。12-webkit-mask-image: url();background-repeat: no-r">
-<meta property="og:updated_time" content="2017-07-27T01:12:39.000Z">
+<meta property="og:description" content="想想也有好久没写博客了，考试月什么的。加上我也有点懒，现在手头上没事情了，也是该好好沉淀一下了。刚刚随手翻到了阮一峰的一篇文章，讲的js的运行机制。首先要明确的一点就是JavaScript是单线程的。单线程就意味着，所有的任务都需要排队，前一个任务执行完毕才会执行后一个任务。如果一个任务的执行时间很长，那么后一个任务就不得不等着，直到前面的任务执行完毕。 任务队列在浏览器的环境下，我们经常需要向服">
+<meta property="og:updated_time" content="2018-01-31T13:04:16.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="07.26">
-<meta name="twitter:description" content="background-clip实现字体的颜色渐变1-webkit-background-clip: text; mask-image这个实现的效果与上面的有点类似，但是最大的不同是，这个操作的是图片。透明的地方会盖住背景，而不透明的地方则会显现出背景的颜色，可以用这个属性来实现logo的颜色渐变。12-webkit-mask-image: url();background-repeat: no-r">
+<meta name="twitter:title" content="单线程的JavaScript">
+<meta name="twitter:description" content="想想也有好久没写博客了，考试月什么的。加上我也有点懒，现在手头上没事情了，也是该好好沉淀一下了。刚刚随手翻到了阮一峰的一篇文章，讲的js的运行机制。首先要明确的一点就是JavaScript是单线程的。单线程就意味着，所有的任务都需要排队，前一个任务执行完毕才会执行后一个任务。如果一个任务的执行时间很长，那么后一个任务就不得不等着，直到前面的任务执行完毕。 任务队列在浏览器的环境下，我们经常需要向服">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://hanchengz.github.io/2017/07/26/07.26/"/>
+  <link rel="canonical" href="http://hanchengz.github.io/2018/01/27/单线程的JavaScript/"/>
 
 
 
 
 
-  <title> 07.26 | Hero </title>
+  <title> 单线程的JavaScript | Hero </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -249,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2017/07/26/07.26/">
+    <link itemprop="mainEntityOfPage" href="http://hanchengz.github.io/2018/01/27/单线程的JavaScript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hancheng Zhou">
@@ -270,7 +270,7 @@
             
             
               
-                07.26
+                单线程的JavaScript
               
             
           </h1>
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-26T11:09:49+08:00">
-                2017-07-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-27T16:05:12+08:00">
+                2018-01-27
               </time>
             
 
@@ -321,8 +321,13 @@
       
 
       
-        <h1 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a>background-clip</h1><p>实现字体的颜色渐变<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-background-clip</span>: <span class="selector-tag">text</span>;</div></pre></td></tr></table></figure></p>
-<h1 id="mask-image"><a href="#mask-image" class="headerlink" title="mask-image"></a>mask-image</h1><p>这个实现的效果与上面的有点类似，但是最大的不同是，这个操作的是图片。<br>透明的地方会盖住背景，而不透明的地方则会显现出背景的颜色，可以用这个属性来实现logo的颜色渐变。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-mask-image</span>: <span class="selector-tag">url</span>();</div><div class="line"><span class="selector-tag">background-repeat</span>: <span class="selector-tag">no-repeat</span>;</div></pre></td></tr></table></figure></p>
+        <p>想想也有好久没写博客了，考试月什么的。加上我也有点懒，现在手头上没事情了，也是该好好沉淀一下了。<br>刚刚随手翻到了阮一峰的一篇文章，讲的js的运行机制。<br>首先要明确的一点就是JavaScript是单线程的。单线程就意味着，所有的任务都需要排队，前一个任务执行完毕才会执行后一个任务。如果一个任务的执行时间很长，那么后一个任务就不得不等着，直到前面的任务执行完毕。</p>
+<h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p>在浏览器的环境下，我们经常需要向服务器请求数据，但由于网络等环境因素，我们可能需要等待较长的一段时间，而这段时间里，cpu是处于空闲状态的，同时代码卡在这里，并没有继续往下执行。js的语言设计者意识到，主线程完全可以不理会IO设备，将等待中的任务挂起，先运行后面的代码。当后面的代码都运行完了，IO设备返回结果了，就将原本挂起的任务拿过来继续执行。</p>
+<p>因此，所有的任务可以分为两种。“同步任务”与“异步任务”。同步任务指的是在主线程上排队执行的任务，从前往后依次执行。异步任务指的是，不进入主线程，而是进入“任务队列”的任务。只有任务队列通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。（但依然需要等到主线程处于空闲状态才会执行任务队列的任务）</p>
+<h2 id="事件和回调函数"><a href="#事件和回调函数" class="headerlink" title="事件和回调函数"></a>事件和回调函数</h2><p>“任务队列”是一个事件的队列，IO设备完成一项任务，就会在“任务队列”中添加一个事件，表示相关的异步任务可以进入主线程了。当主线程处于空闲状态时，就会读取“任务队列”。要注意的是“任务队列”是先进先出的。</p>
+<p>其实所谓的回调函数，可以理解为被主线程挂起的代码。当主线程空闲时读取的“任务队列”，实际上就是执行对应的回调函数。</p>
+<h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><p>所谓事件循环，就是主线程不断的从“任务队列”读取事件，这个过程是循环不断的。</p>
+<p>需要明确的一点就是，只有主线程的代码执行完毕，主线程处于空闲状态时，才会执行异步任务的回调函数。</p>
 
       
     </div>
@@ -359,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/25/07.25/" rel="next" title="07.25">
-                <i class="fa fa-chevron-left"></i> 07.25
+              <a href="/2017/12/17/数组去重/" rel="next" title="数组去重">
+                <i class="fa fa-chevron-left"></i> 数组去重
               </a>
             
           </div>
@@ -368,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/27/07.27/" rel="prev" title="07.27">
-                07.27 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -491,7 +492,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#background-clip"><span class="nav-number">1.</span> <span class="nav-text">background-clip</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mask-image"><span class="nav-number">2.</span> <span class="nav-text">mask-image</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#任务队列"><span class="nav-number">1.</span> <span class="nav-text">任务队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件和回调函数"><span class="nav-number">2.</span> <span class="nav-text">事件和回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-Loop"><span class="nav-number">3.</span> <span class="nav-text">Event Loop</span></a></li></ol></div>
             
 
           </div>
